@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Play, Pause, RotateCcw, Eye, Sparkles, Check } from 'lucide-react'
+import { Play, Pause, RotateCcw, Eye, Check } from 'lucide-react'
 
 export function OcularSimulator() {
   const [active, setActive] = useState(false)
@@ -37,16 +37,13 @@ export function OcularSimulator() {
   const progress = ((20 - seconds) / 20) * 100
 
   return (
-    <section className="py-20 bg-[#FAF9F5]">
+    <section className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="rounded-[36px] bg-[#FFFFFF] border border-[var(--border)] p-8 sm:p-12 shadow-lg text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4E7A4C]/10 text-[#4E7A4C] text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Interactive Web Experience</span>
-          </div>
+        <div className="rounded-[32px] bg-[var(--surface)] p-8 sm:p-12 text-center space-y-6">
+          <p className="text-xs font-semibold tracking-wide uppercase text-[var(--sage)]">Try it here</p>
 
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#262624]">
-            Try a 20-second 20-20-20 Eye Rest now
+            Take a 20-second break now
           </h2>
 
           <p className="text-base text-[#5F5B56] max-w-xl mx-auto">
@@ -101,17 +98,17 @@ export function OcularSimulator() {
             {/* Status instruction */}
             <div className="mt-4 h-6 text-sm font-medium text-[#262624]">
               {completed
-                ? '✨ Tear film refreshed! Ciliary eye muscles relaxed.'
+                ? 'Done. Your eyes had twenty seconds off the screen.'
                 : active
                 ? 'Softly blink twice and breathe gently...'
-                : 'Click start to begin your break'}
+                : 'Press start, then look at something across the room'}
             </div>
 
             {/* Controls */}
             <div className="mt-6 flex items-center gap-3">
               <button
                 onClick={toggle}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#DA7756] hover:bg-[#C86747] text-white font-semibold text-sm shadow-md transition-all active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#DA7756] hover:bg-[#C86747] text-white font-semibold text-sm transition-colors active:scale-95"
               >
                 {active ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                 <span>{completed ? 'Repeat Rest' : active ? 'Pause' : 'Start 20s Rest'}</span>

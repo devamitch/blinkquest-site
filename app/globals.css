@@ -43,7 +43,7 @@ body {
   background-color: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -58,15 +58,6 @@ body {
 .squircle-card {
   border-radius: var(--radius-squircle);
   background-color: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 20px -2px var(--shadow);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.squircle-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px -4px rgba(38, 38, 36, 0.08);
 }
 
 .squircle-surface {

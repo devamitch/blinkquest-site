@@ -8,13 +8,13 @@ import { SiteFooter } from '@/components/SiteFooter'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F5] text-[#262624]">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
         <ScreensShowcase />
-        <OcularSimulator />
         <FeatureBento />
+        <OcularSimulator />
         <DownloadCta />
       </main>
       <SiteFooter />

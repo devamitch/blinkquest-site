@@ -1,68 +1,61 @@
 import { constructMetadata } from '@/lib/seo'
-import { ContentPage } from '@/components/ContentPage'
-import { AlertCircle, BookOpen, HeartHandshake, ShieldAlert } from 'lucide-react'
+import { Block, ContentPage } from '@/components/ContentPage'
 
 export const metadata = constructMetadata({
-  title: 'Science & Medical Triage Guidelines',
-  description: 'The ocular ergonomics science behind BlinkQuest: Computer Vision Syndrome (CVS), tear film dynamics, and honest symptom triage.',
+  title: 'Science',
+  description: 'What research says about blinking and screens, what BlinkQuest measures, and when to see an eye care professional.',
   path: '/science',
 })
 
 export default function SciencePage() {
   return (
     <ContentPage
-      badge="Clinical Evidence & Triage"
-      title="The science of digital eye strain."
-      subtitle="Understanding tear film breakup, the 20-20-20 rule, and knowing when to see an optometrist."
+      badge="Science"
+      title="Why blinking matters on screens."
+      subtitle="What the research says, what BlinkQuest measures, and what it can't tell you."
     >
-      <div className="space-y-8">
-        {/* Medical disclaimer alert */}
-        <div className="p-6 rounded-2xl bg-[#DA7756]/10 border border-[#DA7756]/30 flex items-start gap-4">
-          <AlertCircle className="w-6 h-6 text-[#DA7756] shrink-0 mt-0.5" />
-          <div className="space-y-1 text-sm text-[#262624]">
-            <p className="font-bold">Not a Diagnostic Medical Device</p>
-            <p className="text-[#5F5B56] leading-relaxed">
-              BlinkQuest is designed solely for ergonomic education, screen-habit mindfulness, and blink frequency tracking. It does not inspect the retina, lens, optic nerve, or intraocular pressure. It cannot diagnose or treat glaucoma, macular degeneration, cataracts, or retinal detachment.
-            </p>
-          </div>
-        </div>
+      <Block title="We blink less while we focus on screens">
+        <p>
+          Studies of people reading or working at displays have found spontaneous blink rates drop sharply
+          compared with relaxed conversation, often to around a third, and a larger share of blinks are
+          incomplete. Less blinking lets the tear film thin, which is one reason eyes feel dry and tired after
+          long screen sessions. The American Optometric Association groups these symptoms as digital eye strain.
+        </p>
+      </Block>
 
-        <section className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-[#262624]">Computer Vision Syndrome (CVS)</h2>
-          <p>
-            The American Optometric Association (AOA) defines Computer Vision Syndrome (also termed Digital Eye Strain) as a group of eye and vision-related problems that result from prolonged computer, tablet, and smartphone use.
-          </p>
-          <p>
-            Research demonstrates that when reading digital text, our spontaneous blink rate drops from <strong>18 blinks/min to roughly 6 blinks/min</strong>. Furthermore, up to 60% of blinks during intensive cognitive focus fail to achieve full contact between the upper and lower eyelid margins.
-          </p>
-        </section>
+      <Block title="Looking away helps">
+        <p>
+          Focusing near for long periods keeps the focusing muscles working. The common 20-20-20 habit (every 20
+          minutes, look at something 20 feet away for 20 seconds) gives them a rest. BlinkQuest&apos;s Near / Far
+          Break and alerts are built on that idea.
+        </p>
+      </Block>
 
-        <section className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-[#262624]">Tear Film Breakup Time (TBUT)</h2>
-          <p>
-            The precorneal tear film is a delicate, three-layer fluid structure: an inner mucin layer, a middle aqueous layer, and an outer lipid layer secreted by the meibomian glands along the rim of the eyelids.
-          </p>
-          <p>
-            A complete blink compresses the meibomian glands, squeezing a fresh layer of protective oil across the ocular surface. When blinking is suppressed, the tear film breaks up within 5 to 10 seconds, exposing sensitive corneal nerve endings directly to ambient air and evaporation.
-          </p>
-        </section>
+      <Block title="What BlinkQuest measures">
+        <p>
+          Blink count and rate, how long eyes stay closed, an eye-aperture ratio, rough distance from the screen,
+          head position and how much of the time your face was tracked. These are habit indicators. They are not
+          comparable with clinical tests and are best compared only with your own earlier scans.
+        </p>
+      </Block>
 
-        <section className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-[#262624]">Red-Flag Symptoms Requiring Prompt Care</h2>
-          <div className="p-6 rounded-3xl bg-[#FFFFFF] border border-[var(--border)] shadow-xs space-y-3 text-sm text-[#262624]">
-            <p className="font-semibold text-[#BE3434] flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4" /> Seek immediate clinical care if you experience:
-            </p>
-            <ul className="list-disc list-inside space-y-1.5 text-[#5F5B56]">
-              <li>Sudden loss or blacking out of vision in one or both eyes</li>
-              <li>A sudden shower of new floaters accompanied by flashes of light (retinal risk)</li>
-              <li>Severe, deep ocular pain or pain accompanied by nausea/vomiting</li>
-              <li>Halos or rainbow rings around streetlights or indoor light sources</li>
-              <li>Chemical exposure or foreign body sensation that does not rinse away</li>
-            </ul>
-          </div>
-        </section>
-      </div>
+      <Block title="What it can't tell you">
+        <p>
+          A front camera can&apos;t see inside the eye. BlinkQuest doesn&apos;t measure eyesight or prescription
+          and can&apos;t detect cataracts, glaucoma, macular degeneration or any other condition.
+        </p>
+      </Block>
+
+      <section className="rounded-[24px] bg-[var(--surface)] p-6">
+        <h2 className="font-serif text-xl font-semibold text-[#9B2C2C]">See a professional promptly if you notice</h2>
+        <ul className="mt-3 space-y-1.5 text-[var(--ink-secondary)] list-disc pl-5">
+          <li>Sudden loss or dimming of vision in one or both eyes</li>
+          <li>A sudden shower of floaters or flashes of light</li>
+          <li>Severe eye pain, or eye pain with headache and nausea</li>
+          <li>Halos around lights or a red, painful eye</li>
+          <li>A chemical splash or something in the eye that won&apos;t rinse out</li>
+        </ul>
+      </section>
     </ContentPage>
   )
 }

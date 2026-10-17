@@ -1,64 +1,64 @@
 import { constructMetadata } from '@/lib/seo'
-import { ContentPage } from '@/components/ContentPage'
-import { ShieldCheck, Lock, EyeOff, ServerOff } from 'lucide-react'
+import { Block, ContentPage } from '@/components/ContentPage'
+import { siteConfig } from '@/lib/site'
 
 export const metadata = constructMetadata({
-  title: 'Privacy Policy (100% On-Device)',
-  description: 'BlinkQuest privacy manifesto: zero cloud servers, zero analytics, zero video storage. All computer vision is computed locally in RAM.',
+  title: 'Privacy policy',
+  description: 'What BlinkQuest collects, where it is stored, and how to delete it.',
   path: '/privacy',
 })
 
 export default function PrivacyPage() {
   return (
-    <ContentPage
-      badge="Zero-Cloud Privacy Policy"
-      title="Your face and eyes belong to you alone."
-      subtitle="Last updated: October 2026 · A plain-English privacy manifesto."
-    >
-      <div className="space-y-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-6 rounded-3xl bg-[#FFFFFF] border border-[var(--border)] shadow-xs flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#4E7A4C]/15 text-[#4E7A4C] flex items-center justify-center shrink-0">
-              <EyeOff className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm text-[#262624]">Zero Video Storage</h3>
-              <p className="text-xs text-[#5F5B56] mt-1">Frames are discarded in RAM immediately after calculating EAR scalar metrics.</p>
-            </div>
-          </div>
+    <ContentPage badge="Privacy policy" title="Your face stays on your phone." subtitle="Last updated 17 October 2026.">
+      <Block title="Camera">
+        <p>
+          The front camera only runs during a scan or an activity you start. Frames are analysed on the phone with
+          Google MediaPipe to find face and eye landmarks, then discarded. No photo, video or landmark mesh is
+          saved or sent anywhere.
+        </p>
+      </Block>
 
-          <div className="p-6 rounded-3xl bg-[#FFFFFF] border border-[var(--border)] shadow-xs flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#4E7A4C]/15 text-[#4E7A4C] flex items-center justify-center shrink-0">
-              <ServerOff className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm text-[#262624]">Zero Cloud Servers</h3>
-              <p className="text-xs text-[#5F5B56] mt-1">No remote servers, no authentication tokens, no third-party tracking SDKs.</p>
-            </div>
-          </div>
-        </div>
+      <Block title="What is stored on your phone">
+        <p>
+          Derived measurements only: about one row per second of eye and head geometry during scans (kept 7 days),
+          blink and tracking events and per-minute summaries (90 days), hourly summaries (2 years), activity results,
+          and check-ins you enter yourself. Android backup is turned off for the app.
+        </p>
+      </Block>
 
-        <section className="space-y-3">
-          <h2 className="font-serif text-xl font-bold text-[#262624]">1. Camera Permission Justification</h2>
-          <p className="text-sm text-[#5F5B56] leading-relaxed">
-            BlinkQuest requests Android&rsquo;s <code>android.permission.CAMERA</code> permission strictly for running Google MediaPipe Face Mesh in real-time. Camera frames are processed strictly on your device&rsquo;s CPU/GPU and are never saved to disk, encoded to video files, or transmitted over the network.
-          </p>
-        </section>
+      <Block title="Your account">
+        <p>
+          You sign in with Google or with the Setu app. If you use Google, Google&apos;s sign-in service handles the
+          login and BlinkQuest receives your name, email address and profile picture. If you use Setu, Setu passes
+          your Setu display name and an identifier. That account information is stored on your phone. BlinkQuest has
+          no server of its own and doesn&apos;t upload your scans, results or account details.
+        </p>
+      </Block>
 
-        <section className="space-y-3">
-          <h2 className="font-serif text-xl font-bold text-[#262624]">2. Local Data Storage & Full Deletion</h2>
-          <p className="text-sm text-[#5F5B56] leading-relaxed">
-            Aggregate session metrics (such as average blink count, session start and end times, and optional self-reported symptoms) are saved exclusively in a private SQLite database inside the app&rsquo;s sandboxed internal storage on your device. You can erase all data at any time via Settings &rarr; &ldquo;Erase All Data&rdquo;.
-          </p>
-        </section>
+      <Block title="No tracking">
+        <p>BlinkQuest has no advertising or analytics SDKs and doesn&apos;t share or sell data.</p>
+      </Block>
 
-        <section className="space-y-3">
-          <h2 className="font-serif text-xl font-bold text-[#262624]">3. No Analytics or Advertising Identifiers</h2>
-          <p className="text-sm text-[#5F5B56] leading-relaxed">
-            BlinkQuest contains zero advertising SDKs, zero user tracking pixels, and zero third-party telemetry. We do not collect Google Advertising ID (AAID) or device identifiers.
-          </p>
-        </section>
-      </div>
+      <Block title="Deleting your data">
+        <p>
+          Settings → Delete data removes scans, activity results or check-ins, or everything at once. Signing out
+          removes your account details from the phone. Uninstalling the app removes all of it.
+        </p>
+      </Block>
+
+      <Block title="Children">
+        <p>BlinkQuest isn&apos;t directed at children under 13.</p>
+      </Block>
+
+      <Block title="Contact">
+        <p>
+          Questions about privacy:{' '}
+          <a href={`mailto:${siteConfig.contactEmail}`} className="underline underline-offset-2 text-[var(--ink)]">
+            {siteConfig.contactEmail}
+          </a>
+        </p>
+      </Block>
     </ContentPage>
   )
 }

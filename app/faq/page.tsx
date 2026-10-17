@@ -2,49 +2,54 @@ import { constructMetadata } from '@/lib/seo'
 import { ContentPage } from '@/components/ContentPage'
 
 export const metadata = constructMetadata({
-  title: 'Frequently Asked Questions (FAQ)',
-  description: 'Common questions about BlinkQuest: battery life, privacy guarantees, accuracy with glasses, and clinical status.',
+  title: 'FAQ',
+  description: 'Common questions about BlinkQuest: privacy, glasses, battery, accounts and what it can and can’t do.',
   path: '/faq',
 })
 
 const faqs = [
   {
-    q: 'Does keeping the camera open drain my phone battery?',
-    a: 'BlinkQuest is heavily optimized for energy efficiency. The camera preview operates in a low-power YUV buffer mode with no rendering overhead, and inference runs through quantized MediaPipe models that consume less than 3-5% battery per hour of continuous tracking. For all-day use, we recommend using the intermittent 20-20-20 check-in mode.',
+    q: 'Are photos or videos of my face saved?',
+    a: 'No. Frames are analysed on the phone and thrown away. Only small numbers like blink counts and scores are stored, on your phone.',
   },
   {
-    q: 'Does BlinkQuest work if I wear prescription glasses or contacts?',
-    a: 'Yes. MediaPipe Face Mesh identifies corneal landmarks and eyelid margins through standard optical glass, anti-reflective coatings, and clear contact lenses. Heavily tinted sunglasses or extreme mirror lenses will impede optical landmark detection.',
+    q: 'Why do I need to sign in?',
+    a: 'Your account gives your streaks and results an owner. Sign in with Google or with the Setu app. BlinkQuest has no server, so nothing is uploaded either way.',
   },
   {
-    q: 'Are any pictures or videos saved or sent to a server?',
-    a: 'Never. BlinkQuest does not possess internet permission for camera feeds. Video frames are held in temporary memory for under 15 milliseconds while computing the Eye Aspect Ratio float, and then immediately freed by Android’s memory manager.',
+    q: 'Why does every activity need the camera?',
+    a: 'So it counts only what you actually do: eyes that really look away, close or blink. Without that, a break is just a timer you can ignore.',
   },
   {
-    q: 'Is BlinkQuest a medical diagnosis tool?',
-    a: 'No. BlinkQuest is an ergonomic habit and wellness awareness companion. It does not diagnose dry eye disease, blepharitis, glaucoma, or refractive errors. If you suffer persistent pain or vision changes, please visit an optometrist or ophthalmologist.',
+    q: 'Does it work with glasses?',
+    a: 'Usually, yes. If lens glare hides your eyes, tilt the phone a little. Tracking pauses in very dim light rather than guessing.',
   },
   {
-    q: 'Can I export my wellness trends and blink data?',
-    a: 'Yes. All history stored in the local SQLite database can be exported as a clean JSON file at any time from Settings, or deleted permanently with one tap.',
+    q: 'Does the camera drain the battery?',
+    a: 'Only while a scan or activity is running, and most activities last under a minute. Long scans use about as much power as a video call.',
+  },
+  {
+    q: 'Can it check my eyesight or detect eye disease?',
+    a: 'No. It can’t measure vision or prescription and can’t detect conditions like cataracts or glaucoma. If something feels wrong, see an eye care professional.',
+  },
+  {
+    q: 'How do I delete my data?',
+    a: 'Settings → Delete data. You can remove scans, activity results, check-ins or everything. Uninstalling removes it all.',
+  },
+  {
+    q: 'Which phones are supported?',
+    a: 'Android 7.0 and newer with a front camera.',
   },
 ]
 
 export default function FaqPage() {
   return (
-    <ContentPage
-      badge="Questions & Clarifications"
-      title="Frequently Asked Questions."
-      subtitle="Everything you need to know about privacy, accuracy, and everyday use."
-    >
-      <div className="space-y-6">
-        {faqs.map((faq, i) => (
-          <div
-            key={i}
-            className="p-8 rounded-[32px] bg-[#FFFFFF] border border-[var(--border)] shadow-xs space-y-3"
-          >
-            <h3 className="font-serif text-xl font-bold text-[#262624]">{faq.q}</h3>
-            <p className="text-sm text-[#5F5B56] leading-relaxed">{faq.a}</p>
+    <ContentPage badge="FAQ" title="Questions, answered.">
+      <div className="divide-y divide-[var(--border)]">
+        {faqs.map((f) => (
+          <div key={f.q} className="py-6 first:pt-0">
+            <h2 className="font-semibold text-lg text-[var(--ink)]">{f.q}</h2>
+            <p className="mt-2 text-[var(--ink-secondary)]">{f.a}</p>
           </div>
         ))}
       </div>

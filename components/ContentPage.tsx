@@ -1,6 +1,4 @@
 import type { ReactNode } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, Sparkles } from 'lucide-react'
 import { SiteHeader } from './SiteHeader'
 import { SiteFooter } from './SiteFooter'
 
@@ -16,46 +14,40 @@ export function ContentPage({
   children: ReactNode
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F5] text-[#262624]">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          {/* Back link */}
-          <div className="mb-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5F5B56] hover:text-[#262624] transition-colors"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Overview</span>
-            </Link>
-          </div>
-
-          {/* Page Header */}
-          <div className="space-y-4 mb-12 border-b border-[var(--border)] pb-8">
-            {badge && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DA7756]/10 text-[#DA7756] text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{badge}</span>
-              </div>
-            )}
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#262624]">
+      <main className="flex-1 pt-14 pb-20 md:pt-20 md:pb-28">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6">
+          <header className="mb-12">
+            {badge ? (
+              <p className="text-xs font-semibold tracking-wide uppercase text-[var(--terracotta-strong)]">{badge}</p>
+            ) : null}
+            <h1 className="mt-3 font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-[var(--ink)] leading-[1.1]">
               {title}
             </h1>
-            {subtitle && (
-              <p className="text-base sm:text-lg text-[#5F5B56] leading-relaxed max-w-2xl">
-                {subtitle}
-              </p>
-            )}
-          </div>
-
-          {/* Page Content */}
-          <div className="prose prose-neutral max-w-none space-y-8 text-base text-[#262624] leading-relaxed">
-            {children}
-          </div>
+            {subtitle ? (
+              <p className="mt-5 text-lg text-[var(--ink-secondary)] leading-relaxed">{subtitle}</p>
+            ) : null}
+          </header>
+          <div className="space-y-10 text-[var(--ink)] leading-relaxed">{children}</div>
         </div>
       </main>
       <SiteFooter />
     </div>
   )
+}
+
+/** One titled section of an inner page. */
+export function Block({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <section>
+      <h2 className="font-serif text-2xl font-semibold text-[var(--ink)]">{title}</h2>
+      <div className="mt-3 space-y-3 text-[var(--ink-secondary)]">{children}</div>
+    </section>
+  )
+}
+
+/** A soft card for lists of items on inner pages. */
+export function Card({ children }: { children: ReactNode }) {
+  return <div className="rounded-[24px] bg-[var(--surface)] p-6 space-y-2">{children}</div>
 }
