@@ -2,31 +2,32 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '@/components/SocialIcons'
 import { getAppHref, getAppLabel, siteConfig } from '@/lib/site'
+import { ShieldCheck, Heart, Sparkles } from 'lucide-react'
 
 const columns = [
   {
     title: 'Product',
     links: [
-      { href: '/features', label: 'Features' },
-      { href: '/how-it-works', label: 'How it works' },
-      { href: '/science', label: 'Science' },
-      { href: '/roadmap', label: 'Roadmap' },
+      { href: '/features', label: 'Feature Directory' },
+      { href: '/how-it-works', label: 'How It Works' },
+      { href: '/science', label: 'Clinical Research' },
+      { href: '/roadmap', label: 'Release Roadmap' },
     ],
   },
   {
-    title: 'Help',
+    title: 'Resources',
     links: [
-      { href: '/faq', label: 'FAQ' },
-      { href: '/download', label: 'Install' },
-      { href: '/contact', label: 'Contact' },
-      { href: '/about', label: 'About' },
+      { href: '/faq', label: 'FAQ & Support' },
+      { href: '/download', label: 'Install Instructions' },
+      { href: '/contact', label: 'Direct Contact' },
+      { href: '/about', label: 'About Project' },
     ],
   },
   {
-    title: 'Legal',
+    title: 'Governance',
     links: [
-      { href: '/privacy', label: 'Privacy policy' },
-      { href: '/terms', label: 'Terms' },
+      { href: '/privacy', label: 'Privacy Policy' },
+      { href: '/terms', label: 'Terms of Use' },
     ],
   },
 ]
@@ -39,34 +40,58 @@ const social = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[var(--surface2)]/60 pt-16 pb-10">
+    <footer className="bg-[var(--surface2)]/70 border-t border-[var(--border)] pt-20 pb-12">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_repeat(3,1fr)]">
+          {/* Brand & Mission column */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="relative w-8 h-8 rounded-[10px] overflow-hidden">
+            <div className="flex items-center gap-3">
+              <span className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs ring-1 ring-[var(--border-strong)]">
                 <Image src="/assets/brand/app-icon.png" alt="" fill className="object-cover" />
               </span>
-              <span className="font-serif font-semibold text-lg text-[var(--ink)]">{siteConfig.name}</span>
+              <div>
+                <span className="font-serif font-bold text-xl text-[var(--ink)] block">
+                  {siteConfig.name}
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--terracotta)]">
+                  On-Device Wellness
+                </span>
+              </div>
             </div>
-            <p className="mt-4 text-sm text-[var(--ink-secondary)] max-w-sm leading-relaxed">
-              {siteConfig.description}
+
+            <p className="mt-5 text-sm text-[var(--ink-secondary)] max-w-sm leading-relaxed">
+              BlinkQuest helps digital professionals, developers, and gamers eliminate digital eye fatigue with micro-habit games and camera-verified breaks.
             </p>
-            <a
-              href={getAppHref}
-              className="mt-5 inline-flex px-4 py-2 rounded-full bg-[var(--ink)] text-white text-sm font-semibold"
-            >
-              {getAppLabel}
-            </a>
+
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={getAppHref}
+                className="btn-primary text-xs !py-2.5 !px-5"
+              >
+                {getAppLabel}
+              </a>
+              <a
+                href={siteConfig.githubRepoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary text-xs !py-2.5 !px-4"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
 
+          {/* Navigation Links Columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--ink-muted)]">{col.title}</h4>
-              <ul className="mt-4 space-y-2.5 text-sm">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--ink)]">{col.title}</h4>
+              <ul className="mt-5 space-y-3 text-sm">
                 {col.links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-[var(--ink-secondary)] hover:text-[var(--ink)]">
+                    <Link
+                      href={l.href}
+                      className="text-[var(--ink-secondary)] hover:text-[var(--terracotta)] transition-colors duration-150"
+                    >
                       {l.label}
                     </Link>
                   </li>
@@ -76,19 +101,28 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <p className="mt-12 text-xs text-[var(--ink-muted)] leading-relaxed max-w-3xl">
-          BlinkQuest is a wellness app for screen habits, not a medical device. It doesn’t test
-          vision, diagnose, treat or prevent any condition. For sudden vision changes, eye pain or
-          flashes of light, see an eye care professional straight away.
-        </p>
-
-        <div className="mt-8 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--ink-muted)]">
+        {/* Medical disclaimer badge */}
+        <div className="mt-14 p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] text-xs text-[var(--ink-muted)] leading-relaxed flex items-start gap-3">
+          <ShieldCheck className="w-5 h-5 text-[var(--sage)] shrink-0 mt-0.5" />
           <p>
-            © {new Date().getFullYear()} BlinkQuest · Made by{' '}
-            <a href={siteConfig.authorUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--ink)]">
+            <strong>Wellness Disclaimer:</strong> BlinkQuest is an eye-habit wellness application. It is not an FDA/CE-registered medical diagnostic device and does not diagnose, treat, cure, or prevent any ocular condition. For sudden vision impairment, pain, or flashes of light, seek professional optometric evaluation immediately.
+          </p>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--ink-muted)]">
+          <p className="flex items-center gap-1.5">
+            © {new Date().getFullYear()} BlinkQuest · Engineered by{' '}
+            <a
+              href={siteConfig.authorUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--ink)] hover:text-[var(--terracotta)] transition-colors"
+            >
               {siteConfig.author}
             </a>
           </p>
+
           <div className="flex items-center gap-2">
             {social.map(({ href, label, Icon }) => (
               <a
@@ -97,7 +131,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="p-2 rounded-full hover:bg-[var(--surface3)] text-[var(--ink-secondary)]"
+                className="p-2.5 rounded-full bg-[var(--surface)] hover:bg-[var(--surface3)] text-[var(--ink-secondary)] hover:text-[var(--ink)] border border-[var(--border)] transition-colors shadow-2xs"
               >
                 <Icon className="w-4 h-4" />
               </a>
