@@ -6,13 +6,17 @@
     "enabled": true
   },
   "build": {
-    "command": "npm run build"
+    "command": "pnpm run build"
   },
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page",
     "html_handling": "drop-trailing-slash"
   },
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "blinkquest.devamit.co.in", "custom_domain": true }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ],
