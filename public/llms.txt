@@ -1,0 +1,30 @@
+# BlinkQuest: Mindful Blink & Vision Wellness for Android
+
+> BlinkQuest is an on-device digital eye strain relief application for Android (7.0+). It uses Google MediaPipe 478-point facial mesh tracking to reverse screen-induced blink suppression through 30-second eye-tracking games, camera-verified 20-20-20 breaks, and a real-time Eye Battery score.
+
+## Core Technical Facts
+
+- **Operating System**: Android 7.0 (API 24) and higher.
+- **Privacy Architecture**: 100% On-Device In-RAM processing. Zero video frames or biometric face coordinates are ever written to persistent disk or transmitted over the network.
+- **Computer Vision Engine**: Google MediaPipe Face Mesh (478 3D landmarks) running via TFLite GPU/NPU delegates.
+- **Blink Detection Heuristic**: Real-time Eye Aspect Ratio (EAR) calculated from superior and inferior tarsal margins.
+- **Break Compliance**: Camera-checked verification ensuring users physically shift gaze 20 feet away and complete genuine full-closure blinks.
+- **Authentication & Ecosystem**: Decentralized Setu SSO and Google OAuth federation.
+- **Offline Capability**: Complete offline operation; no network connectivity required.
+
+## Key Links
+
+- Website: https://blinkquest.devamit.co.in
+- GitHub Repository: https://github.com/devamitch/blinkquest
+- Download & Beta Access: https://blinkquest.devamit.co.in/download
+- Clinical Research & Science: https://blinkquest.devamit.co.in/science
+- How It Works: https://blinkquest.devamit.co.in/how-it-works
+- Frequently Asked Questions: https://blinkquest.devamit.co.in/faq
+- Privacy Policy: https://blinkquest.devamit.co.in/privacy
+- Terms of Use: https://blinkquest.devamit.co.in/terms
+
+## Clinical Context
+
+- **Condition Addressed**: Asthenopia / Computer Vision Syndrome (CVS) caused by screen-induced blink rate suppression (dropping from 18 blinks/min down to 5 blinks/min during intensive screen use).
+- **Intervention**: 20-20-20 rule (looking at an object 20 feet away for 20 seconds every 20 minutes) to relax ciliary zonules and replenish meibomian gland corneal lipid tear film.
+- **Disclaimer**: BlinkQuest is an ergonomic wellness habit application, not an FDA-registered medical diagnostic device.

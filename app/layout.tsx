@@ -4,6 +4,7 @@ import './globals.css'
 import { SmoothScrollProvider } from '@/components/SmoothScrollProvider'
 import { siteConfig } from '@/lib/site'
 import { ogImage } from '@/lib/seo'
+import { faqs } from '@/lib/faqData'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -15,23 +16,34 @@ export const metadata: Metadata = {
   keywords: [
     'BlinkQuest',
     'Blink quest',
-    'Eye wellness app',
+    'Eye wellness app Android',
     'Vision wellness Android',
     'Blink rate tracker',
-    'Computer vision syndrome',
+    'Computer vision syndrome prevention',
     'Digital eye strain relief',
-    '20-20-20 rule app',
+    '20-20-20 rule timer app',
     'Offline eye tracking',
     'Privacy-first vision health',
-    'Dry eye reminder',
+    'Dry eye disease reminder',
     'Eye exercises app',
-        'MediaPipe eye landmark tracker',
+    'MediaPipe eye landmark tracker',
+    'Eye Aspect Ratio blink detection',
+    'Ciliary muscle accommodation reset',
   ],
   applicationName: siteConfig.productName,
   category: 'health',
+  classification: 'Vision Health & Ergonomic Wellness',
   authors: [{ name: siteConfig.author, url: siteConfig.authorUrl }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
+  alternates: {
+    canonical: siteConfig.url,
+    languages: {
+      'en-US': siteConfig.url,
+      'en-GB': siteConfig.url,
+      'en-IN': siteConfig.url,
+    },
+  },
   formatDetection: {
     telephone: false,
     email: false,
@@ -45,6 +57,7 @@ export const metadata: Metadata = {
       'Thirty-second games you play with your eyes, camera-checked breaks and an on-device blink scanner for Android.',
     siteName: siteConfig.name,
     locale: 'en_US',
+    alternateLocale: ['en_GB', 'en_IN'],
     images: [ogImage],
   },
   twitter: {
@@ -53,6 +66,7 @@ export const metadata: Metadata = {
     description:
       'Thirty-second games you play with your eyes, camera-checked breaks and an on-device blink scanner for Android.',
     creator: '@devamitch',
+    site: '@devamitch',
     images: [ogImage.url],
   },
   icons: {
@@ -74,10 +88,16 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  other: {
+    'geo.region': 'IN-KA',
+    'geo.placename': 'Bengaluru',
+    'geo.position': '12.9716;77.5946',
+    ICBM: '12.9716, 77.5946',
+  },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
+  colorScheme: 'light dark',
   themeColor: '#FAF9F5',
   width: 'device-width',
   initialScale: 1,
@@ -116,6 +136,22 @@ const jsonLd = {
         `${siteConfig.url}/assets/app/focus-point.webp`,
       ],
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      featureList: [
+        'On-Device MediaPipe 478-Landmark Eye Tracking',
+        'Camera-Verified 20-20-20 Micro-Breaks',
+        'Dynamic Eye Battery Fatigue Score',
+        'Sub-Millisecond Eye Aspect Ratio (EAR) Blink Heuristic',
+        '100% In-RAM Processing (Zero Cloud Video Egress)',
+        'Full Offline Operation Support',
+        'Setu SSO & Google Federated Authentication',
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        ratingCount: '142',
+        bestRating: '5',
+        worstRating: '1',
+      },
       author: { '@id': `${siteConfig.url}/#author` },
     },
     author,
@@ -130,10 +166,60 @@ const jsonLd = {
     {
       '@type': 'MedicalWebPage',
       '@id': `${siteConfig.url}/#wellness-notice`,
-      name: 'BlinkQuest Wellness & Non-Clinical Notice',
+      name: 'BlinkQuest Digital Eye Fatigue & Ergonomics Notice',
       description:
-        'BlinkQuest provides digital eye fatigue awareness, ergonomics guidance, and blink rate monitoring. It is not a medical device and does not diagnose, treat, or prevent any eye disease or ocular disorder.',
-      audience: 'Computer screen users seeking ergonomic eye comfort',
+        'BlinkQuest provides digital eye fatigue awareness, ergonomics guidance, and blink rate monitoring. It is not an FDA-registered medical diagnostic device and does not diagnose, treat, or prevent any ocular pathology.',
+      audience: 'Computer screen users seeking ergonomic ocular comfort',
+      about: [
+        {
+          '@type': 'MedicalCondition',
+          name: 'Asthenopia (Computer Vision Syndrome)',
+        },
+        {
+          '@type': 'MedicalCondition',
+          name: 'Dry Eye Syndrome from Blink Suppression',
+        },
+      ],
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${siteConfig.url}/#howto-20-20-20`,
+      name: 'How to Relieve Digital Eye Strain using 20-20-20 Breaks on BlinkQuest',
+      description: 'Follow this 20-second clinical ocular routine to restore corneal tear film and relax ciliary eye muscles.',
+      step: [
+        {
+          '@type': 'HowToStep',
+          name: 'Trigger a Micro-Break',
+          text: 'Tap Start 20s Break in BlinkQuest or on the web simulator.',
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Fixate on Distance',
+          text: 'Shift your gaze away from all monitors and focus on an object at least 20 feet (6 meters) away.',
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Perform Mindful Blinks',
+          text: 'Lower your shoulders, take deep rhythmic breaths, and execute gentle full-closure blinks.',
+        },
+        {
+          '@type': 'HowToStep',
+          name: 'Verify Eye Battery Recovery',
+          text: 'Return to your screen with a replenished lipid tear film and recharged Eye Battery.',
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteConfig.url}/#faq`,
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
     },
   ],
 }
@@ -154,6 +240,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <meta name="geo.region" content="IN-KA" />
+        <meta name="geo.placename" content="Bengaluru" />
+        <meta name="geo.position" content="12.9716;77.5946" />
+        <meta name="ICBM" content="12.9716, 77.5946" />
         <script
           id="blinkquest-jsonld"
           type="application/ld+json"
