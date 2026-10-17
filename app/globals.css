@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #FAF9F5;
+  --paper: #FAF9F5;
+  --surface: #FFFFFF;
+  --surface2: #F0EEE6;
+  --surface3: #E5E2D9;
+  --surface-glass: rgba(250, 249, 245, 0.88);
+  --surface-card: #FFFFFF;
+
+  --ink: #262624;
+  --ink-secondary: #5F5B56;
+  --ink-muted: #736E68;
+
+  --terracotta: #DA7756;
+  --terracotta-hover: #C86747;
+  --terracotta-strong: #B04F38;
+  --terracotta-subtle: rgba(218, 119, 86, 0.12);
+
+  --sage: #4E7A4C;
+  --sage-subtle: rgba(78, 122, 76, 0.12);
+  --amber: #9A4A07;
+  --amber-subtle: rgba(154, 74, 7, 0.10);
+
+  --border: rgba(38, 38, 36, 0.07);
+  --border-strong: rgba(38, 38, 36, 0.14);
+  --shadow: rgba(38, 38, 36, 0.04);
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-squircle: 28px;
+  --radius-squircle-sm: 18px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.squircle-card {
+  border-radius: var(--radius-squircle);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px -2px var(--shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.squircle-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -4px rgba(38, 38, 36, 0.08);
+}
+
+.squircle-surface {
+  border-radius: var(--radius-squircle);
+}
+
+.squircle-surface-sm {
+  border-radius: var(--radius-squircle-sm);
+}
+
+.squircle-pill {
+  border-radius: 9999px;
+}
+
+.glass-nav {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Lenis smooth scrolling styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
