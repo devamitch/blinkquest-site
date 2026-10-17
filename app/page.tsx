@@ -1,6 +1,5 @@
 import { SiteHeader } from '@/components/SiteHeader'
 import { HeroSection } from '@/components/HeroSection'
-import { ScreensShowcase } from '@/components/ScreensShowcase'
 import { EyeStrainCalculator } from '@/components/EyeStrainCalculator'
 import { ComparisonSection } from '@/components/ComparisonSection'
 import { VisionArchitecture } from '@/components/VisionArchitecture'
@@ -17,7 +16,6 @@ export default function HomePage() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
-        <ScreensShowcase />
         <EyeStrainCalculator />
         <ComparisonSection />
         <VisionArchitecture />
