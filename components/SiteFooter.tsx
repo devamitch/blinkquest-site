@@ -46,7 +46,7 @@ export function SiteFooter() {
           {/* Brand & Mission column */}
           <div>
             <div className="flex items-center gap-3">
-              <span className="relative w-9 h-9 rounded-xl overflow-hidden shadow-xs ring-1 ring-[var(--border-strong)]">
+              <span className="relative w-9 h-9 rounded-xl overflow-hidden border border-[var(--border)]">
                 <Image src="/assets/brand/app-icon.png" alt="" fill className="object-cover" />
               </span>
               <div>

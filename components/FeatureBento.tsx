@@ -5,44 +5,38 @@ const features = [
   {
     icon: Eye,
     title: 'Gaze-Driven Exercises',
-    body: 'Orb Pop, Slider Chase, Orbit Follow and Direction Trail track your exact gaze via 478 face mesh landmarks. A quick calibration maps your screen space, and head turns are filtered out so your eye muscles do the actual work.',
-    badge: 'Hardware Accelerated',
-    wide: true,
+    body: 'Orb Pop, Slider Chase, Orbit Follow and Direction Trail track your exact gaze using 478 face mesh landmarks. Head turns are filtered out so your extraocular muscles do the genuine physical work.',
+    tag: 'Hardware Accelerated',
   },
   {
     icon: ScanFace,
     title: 'Camera-Verified Breaks',
-    body: 'Near/Far focus, Focus Garden, and Blink Bloom ensure genuine breaks. If you do not look away or blink, the timer pauses until you do.',
-    badge: '20-20-20 Rule',
-    wide: false,
+    body: 'Near/Far focus, Focus Garden, and Blink Bloom ensure genuine pauses. If you do not physically shift your gaze twenty feet away or complete full blinks, the timer pauses until you do.',
+    tag: '20-20-20 Rule',
   },
   {
     icon: BatteryCharging,
     title: 'Dynamic Eye Battery',
-    body: 'Starts fully charged at 100% every morning. Prolonged screen stares or inadequate blink rates deplete it; mindful breaks restore it back to green.',
-    badge: 'Fatigue Model',
-    wide: false,
+    body: 'Starts fully charged at 100% every morning. Prolonged screen stares or inadequate blink rates deplete it; mindful pauses and gaze games restore it back to green.',
+    tag: 'Fatigue Model',
   },
   {
     icon: ShieldCheck,
-    title: '100% Local & Privacy-First',
-    body: 'Inference runs fully on-device using Google MediaPipe. Camera frames are processed in memory and immediately discarded. No video or biometric frames ever touch a remote server or cloud bucket.',
-    badge: 'Zero Cloud Storage',
-    wide: true,
+    title: '100% Ephemeral Local Vision',
+    body: 'Machine learning inference runs entirely on-device via Google MediaPipe. Camera frames are processed in memory and immediately discarded. No video or biometric frames ever touch a remote server.',
+    tag: 'Zero Cloud Storage',
   },
   {
     icon: Gamepad2,
-    title: 'Gamified Habit Loops',
-    body: 'Earn XP, unlock milestones, maintain streaks, and collect badges while preventing digital eye strain naturally throughout your workday.',
-    badge: 'Micro-Habits',
-    wide: false,
+    title: 'Habit Formation & Streaks',
+    body: 'Earn XP, unlock milestones, maintain daily streaks, and collect badges while preventing digital eye fatigue naturally throughout your workday.',
+    tag: 'Habit Architecture',
   },
   {
     icon: Sparkles,
     title: 'Setu Ecosystem Ready',
-    body: 'Seamlessly sign in with Google or Setu SSO. Export or federate your progress across your personal devices with zero third-party tracking.',
-    badge: 'Federated SSO',
-    wide: false,
+    body: 'Seamlessly sign in with Google or Setu SSO. Export or federate your progress across your personal devices with zero third-party tracking or ad profiling.',
+    tag: 'Federated SSO',
   },
 ]
 
@@ -51,55 +45,54 @@ export function FeatureBento() {
     <section className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface2)] text-[var(--ink-secondary)] text-xs font-semibold uppercase tracking-wider border border-[var(--border)]">
-            Core Architecture
-          </div>
-          <h2 className="mt-4 font-serif text-3xl sm:text-5xl font-semibold tracking-tight text-[var(--ink)] leading-tight">
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta-strong)]">
+            Capabilities
+          </p>
+          <h2 className="mt-3 font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[var(--ink)] leading-tight">
             Built around one habit: look up, blink, and move your eyes.
           </h2>
-          <p className="mt-4 text-lg text-[var(--ink-secondary)] leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-[var(--ink-secondary)] leading-relaxed">
             Every feature is backed by ergonomic ophthalmology research to reverse screen-induced blink suppression.
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-3 gap-5">
-          {features.map(({ icon: Icon, title, body, badge, wide }) => (
+        {/* Clean Editorial Feature Grid */}
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map(({ icon: Icon, title, body, tag }) => (
             <div
               key={title}
-              className={`group glass-card p-8 sm:p-9 flex flex-col justify-between ${
-                wide ? 'md:col-span-2' : ''
-              }`}
+              className="p-7 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex w-12 h-12 items-center justify-center rounded-2xl bg-[var(--terracotta-subtle)] text-[var(--terracotta-strong)] transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="w-6 h-6" />
+                  <span className="w-9 h-9 rounded-lg bg-[var(--surface2)] flex items-center justify-center text-[var(--ink)]">
+                    <Icon className="w-4 h-4" />
                   </span>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[var(--surface2)] text-[var(--ink-secondary)] border border-[var(--border)]">
-                    {badge}
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--surface2)] text-[var(--ink-secondary)]">
+                    {tag}
                   </span>
                 </div>
-                <h3 className="mt-6 font-serif text-2xl font-bold text-[var(--ink)]">{title}</h3>
-                <p className="mt-3 text-[var(--ink-secondary)] leading-relaxed text-sm sm:text-base">
+                <h3 className="mt-5 text-lg font-bold text-[var(--ink)]">{title}</h3>
+                <p className="mt-2 text-sm text-[var(--ink-secondary)] leading-relaxed">
                   {body}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[var(--border)] flex items-center gap-2 text-xs font-semibold text-[var(--terracotta)]">
-                <span>View engineering details</span>
-                <span>→</span>
+              <div className="mt-6 pt-4 border-t border-[var(--border)] text-xs text-[var(--terracotta-strong)] font-semibold">
+                Explore feature →
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 p-5 rounded-2xl bg-[var(--surface2)]/60 border border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--ink-muted)]">
+        {/* Medical Footnote */}
+        <div className="mt-10 p-5 rounded-xl bg-[var(--surface2)]/50 border border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--ink-muted)]">
           <p>
             BlinkQuest is a digital wellness application, not a medical diagnostic tool. It does not replace clinical ophthalmic examinations.
           </p>
           <Link
             href="/science"
-            className="shrink-0 font-semibold text-[var(--ink)] hover:text-[var(--terracotta)] underline underline-offset-4"
+            className="shrink-0 font-semibold text-[var(--ink)] hover:text-[var(--terracotta-strong)] underline underline-offset-4"
           >
             Review Clinical Citations →
           </Link>

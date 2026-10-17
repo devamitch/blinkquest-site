@@ -1,63 +1,51 @@
 import { getAppHref, getAppLabel, siteConfig } from '@/lib/site'
-import { ArrowRight, ShieldCheck, Download, Sparkles } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Download } from 'lucide-react'
 
 export function DownloadCta() {
   return (
-    <section className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="relative overflow-hidden rounded-[38px] bg-gradient-to-br from-[#1C1B19] via-[#242320] to-[#121110] p-9 sm:p-16 text-white shadow-2xl border border-white/10">
-          {/* Subtle radial ambient light */}
-          <div className="absolute -right-20 -top-20 w-96 h-96 bg-[var(--terracotta)]/20 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-[var(--sage)]/15 rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-24 md:py-32 bg-[var(--surface2)]/50 border-t border-[var(--border)]">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 text-center">
+        <span className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta-strong)]">
+          {siteConfig.playStoreLive ? 'Free on Google Play' : 'Closed Testing Active'}
+        </span>
 
-          <div className="relative z-10 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[#E58A6B] text-xs font-bold uppercase tracking-wider border border-white/10">
-              <Sparkles className="w-3.5 h-3.5" />
-              {siteConfig.playStoreLive ? 'Free on Google Play' : 'Closed Testing Active'}
-            </div>
+        <h2 className="mt-4 font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--ink)] leading-tight">
+          Give your eyes a break that actually counts.
+        </h2>
 
-            <h2 className="mt-6 font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]">
-              Give your eyes a break that actually counts.
-            </h2>
+        <p className="mt-6 text-base sm:text-lg text-[var(--ink-secondary)] leading-relaxed max-w-xl mx-auto">
+          {siteConfig.playStoreLive
+            ? 'Install BlinkQuest for Android and start recharging your Eye Battery today. Completely offline-capable with zero battery drain.'
+            : 'BlinkQuest is actively validating builds with closed testers on Google Play. Request beta access to join the test cohort.'}
+        </p>
 
-            <p className="mt-6 text-lg sm:text-xl text-white/80 leading-relaxed">
-              {siteConfig.playStoreLive
-                ? 'Download BlinkQuest today and start recharging your Eye Battery. Works offline with zero battery drain.'
-                : 'BlinkQuest is actively validating closed-testing builds with Google Play testers. Join our test cohort and experience AI vision wellness on your phone.'}
-            </p>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3.5 items-center justify-center">
+          <a href={getAppHref} className="btn-primary">
+            <Download className="w-4 h-4" />
+            <span>{getAppLabel}</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-              <a
-                href={getAppHref}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[var(--terracotta)] hover:bg-[var(--terracotta-hover)] text-white font-bold text-base shadow-[0_10px_30px_-5px_rgba(217,107,67,0.5)] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <Download className="w-5 h-5" />
-                <span>{getAppLabel}</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+          <a
+            href={`mailto:${siteConfig.contactEmail}?subject=BlinkQuest%20Inquiry`}
+            className="btn-secondary"
+          >
+            Contact Developer
+          </a>
+        </div>
 
-              <a
-                href={`mailto:${siteConfig.contactEmail}?subject=BlinkQuest%20Direct%20Inquiry`}
-                className="inline-flex items-center justify-center px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition-all"
-              >
-                Contact Developer
-              </a>
-            </div>
-
-            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-white/60 font-medium">
-              <div>
-                <p className="text-white font-bold text-sm">Free Forever</p>
-                <p>No paywalls or ad interruptions</p>
-              </div>
-              <div>
-                <p className="text-white font-bold text-sm">Android 7.0+</p>
-                <p>Universal arm64 & x86 binaries</p>
-              </div>
-              <div className="col-span-2 sm:col-span-1">
-                <p className="text-white font-bold text-sm">Privacy Guaranteed</p>
-                <p>Zero frames leave your device</p>
-              </div>
-            </div>
+        <div className="mt-12 pt-8 border-t border-[var(--border)] grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-[var(--ink-muted)]">
+          <div>
+            <p className="font-bold text-sm text-[var(--ink)]">Free Forever</p>
+            <p className="mt-0.5">No paywalls, no tracking ads</p>
+          </div>
+          <div>
+            <p className="font-bold text-sm text-[var(--ink)]">Android 7.0+</p>
+            <p className="mt-0.5">Universal arm64 & x86 binaries</p>
+          </div>
+          <div>
+            <p className="font-bold text-sm text-[var(--ink)]">Local Guarantee</p>
+            <p className="mt-0.5">Frames processed strictly in RAM</p>
           </div>
         </div>
       </div>

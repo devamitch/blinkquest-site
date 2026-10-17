@@ -1,87 +1,130 @@
+'use client'
+
+import { useState } from 'react'
 import { PhoneFrame } from '@/components/PhoneFrame'
-import { Sparkles, Activity, Eye, Compass, Moon } from 'lucide-react'
+import { Sparkles, Activity, Eye, Compass, Moon, ArrowRight } from 'lucide-react'
 
 const screens = [
   {
-    src: '/assets/app/home.webp',
-    title: 'The Home Dashboard',
-    tag: 'Battery & Streaks',
+    id: 'battery',
+    title: 'The Eye Battery',
+    label: 'Daily Fatigue Model',
     icon: Sparkles,
-    body: 'Live Eye Battery status, current fatigue level, daily streaks, and customized recommended activities.',
+    src: '/assets/app/home.webp',
+    description:
+      'Starts fully charged at 100% every morning. As prolonged screen focus suppresses your blink rate, the battery drains into amber and coral. Completing verified breaks recharges it back to green.',
   },
   {
-    src: '/assets/app/activities.webp',
+    id: 'exercises',
     title: 'Exercise Sanctuary',
-    tag: '8 Modalities',
+    label: '8 Targeted Modalities',
     icon: Activity,
-    body: 'Categorized quick activities designed specifically for eye muscle relaxation, near/far focus, and tracking.',
+    src: '/assets/app/activities.webp',
+    description:
+      'A curated collection of thirty-second ocular routines: pupil tracking, ciliary accommodation resets, and tear film lubrication exercises organized by immediate fatigue symptoms.',
   },
   {
-    src: '/assets/app/orbit-follow.webp',
-    title: 'Gaze Games',
-    tag: 'Ocular Control',
+    id: 'gaze',
+    title: 'Gaze-Driven Games',
+    label: 'Pupil Tracking',
     icon: Eye,
-    body: 'Follow, pop and trace targets purely with pupil movement. Anti-cheat ignores head tilts to ensure genuine ocular exercise.',
+    src: '/assets/app/orbit-follow.webp',
+    description:
+      'Pop moving orbs and trace orbits purely with eye movements. MediaPipe filters out head tilts so your six extraocular eye muscles do the genuine physical work.',
   },
   {
-    src: '/assets/app/near-far.webp',
-    title: 'Verified Breaks',
-    tag: '20-20-20 Rule',
+    id: 'breaks',
+    title: 'Verified 20-20-20 Breaks',
+    label: 'Computer Vision Check',
     icon: Compass,
-    body: 'Near/far focus cycles where front camera computer vision ensures you look away and complete real blinks.',
+    src: '/assets/app/near-far.webp',
+    description:
+      'Most eye break apps are immediately dismissed. BlinkQuest checks your gaze through the front camera—if you do not look twenty feet away and complete real blinks, the timer waits.',
   },
   {
-    src: '/assets/app/focus-point.webp',
-    title: 'Focus Point',
-    tag: 'Gentle Gaze',
+    id: 'focus',
+    title: 'Focus Point & Breath',
+    label: 'Ciliary Relaxation',
     icon: Moon,
-    body: 'Thirty seconds of calming, soft visual fixation paired with rhythmic breath cadence to ease strain.',
+    src: '/assets/app/focus-point.webp',
+    description:
+      'Thirty seconds of calming, gentle visual fixation paired with rhythmic breathing prompts to loosen tight brow muscles and ease ocular tension headaches.',
   },
 ]
 
 export function ScreensShowcase() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const activeScreen = screens[activeIndex]
+
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-[var(--surface2)]/40 via-[var(--surface2)]/70 to-[var(--bg)] border-y border-[var(--border)]">
+    <section className="py-24 md:py-32 bg-[var(--surface2)]/50 border-y border-[var(--border)]">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface)] text-[var(--terracotta-strong)] text-xs font-semibold uppercase tracking-wider border border-[var(--border)] shadow-xs">
-            Authentic Device Renders
-          </div>
-          <h2 className="mt-4 font-serif text-3xl sm:text-5xl font-semibold tracking-tight text-[var(--ink)]">
-            Crafted for human eyes.
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta-strong)]">
+            Inside the App
+          </p>
+          <h2 className="mt-3 font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[var(--ink)] leading-tight">
+            Designed for calm, focused minds.
           </h2>
-          <p className="mt-4 text-lg text-[var(--ink-secondary)] leading-relaxed">
-            Every view is captured straight from real Android release builds. No mockups, no false promises.
+          <p className="mt-4 text-base sm:text-lg text-[var(--ink-secondary)] leading-relaxed">
+            Every screen captured directly from Android release builds. No mockups, no artificial marketing renders.
           </p>
         </div>
-      </div>
 
-      <div className="mt-14 max-w-7xl mx-auto">
-        <ul className="flex md:grid md:grid-cols-5 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-px-5 sm:scroll-px-6 px-5 sm:px-6 pb-6 [scrollbar-width:none]">
-          {screens.map((s) => {
-            const Icon = s.icon
-            return (
-              <li
-                key={s.title}
-                className="snap-start shrink-0 w-[72vw] max-w-[280px] md:w-auto md:max-w-none flex flex-col group"
-              >
-                <div className="transform transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  <PhoneFrame src={s.src} alt={`BlinkQuest ${s.title} screen`} />
-                </div>
-                <div className="mt-6 flex-1 flex flex-col justify-between p-4 rounded-2xl bg-[var(--surface)]/60 border border-[var(--border)] shadow-xs group-hover:bg-[var(--surface)] group-hover:shadow-md transition-all duration-300">
-                  <div>
-                    <div className="flex items-center justify-between text-xs font-bold text-[var(--terracotta-strong)] uppercase tracking-wider">
-                      <span>{s.tag}</span>
-                      <Icon className="w-4 h-4 text-[var(--terracotta)]" />
-                    </div>
-                    <h3 className="mt-2 text-base font-bold text-[var(--ink)]">{s.title}</h3>
-                    <p className="mt-1.5 text-xs text-[var(--ink-secondary)] leading-relaxed">{s.body}</p>
+        {/* Interactive Walkthrough Grid */}
+        <div className="mt-14 grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left: Dimension Tabs */}
+          <div className="md:col-span-6 space-y-3">
+            {screens.map((s, index) => {
+              const Icon = s.icon
+              const isSelected = activeIndex === index
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-full text-left p-5 sm:p-6 rounded-2xl transition-all duration-200 cursor-pointer ${
+                    isSelected
+                      ? 'bg-[var(--surface)] border border-[var(--border)] shadow-xs'
+                      : 'hover:bg-[var(--surface)]/50 border border-transparent'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--terracotta-strong)]">
+                      {s.label}
+                    </span>
+                    <Icon className={`w-4 h-4 ${isSelected ? 'text-[var(--terracotta)]' : 'text-[var(--ink-muted)]'}`} />
                   </div>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
+                  <h3 className="mt-1.5 text-lg font-bold text-[var(--ink)]">
+                    {s.title}
+                  </h3>
+                  {isSelected ? (
+                    <p className="mt-2 text-sm text-[var(--ink-secondary)] leading-relaxed animate-in fade-in duration-200">
+                      {s.description}
+                    </p>
+                  ) : null}
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Right: Phone Presentation */}
+          <div className="md:col-span-6 flex justify-center">
+            <div className="w-full max-w-[320px] sm:max-w-[340px]">
+              <PhoneFrame
+                key={activeScreen.id}
+                src={activeScreen.src}
+                alt={`BlinkQuest screen: ${activeScreen.title}`}
+                priority
+              />
+              <div className="mt-4 text-center">
+                <span className="text-xs text-[var(--ink-muted)]">
+                  Captured on Motorola Moto G71 (Android 12)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

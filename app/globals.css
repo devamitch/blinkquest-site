@@ -6,69 +6,60 @@
 :root {
   color-scheme: light dark;
 
-  /* Premium Warm Clay & Paper Palette inspired by Claude, Olo & Apple Vision */
-  --bg: #FBF9F5;
-  --bg-gradient: radial-gradient(circle at 50% 0%, rgba(235, 130, 96, 0.08) 0%, rgba(251, 249, 245, 0) 70%);
-  --paper: #FBF9F5;
-  --surface: #FFFFFF;
-  --surface2: #F3EFE6;
-  --surface3: #E7E1D3;
-  --surface-glass: rgba(251, 249, 245, 0.82);
-  --surface-card: #FFFFFF;
+  /* Canonical Warm Paper Palette matching Setu & Claude design systems */
+  --bg: #FAF9F5;
+  --paper: #FAF9F5;
+  --surface: #FDFDFB;
+  --surface2: #F0EEE6;
+  --surface3: #E5E2D9;
+  --surface-glass: rgba(250, 249, 245, 0.92);
 
-  --ink: #1B1A18;
-  --ink-secondary: #56524A;
-  --ink-muted: #7E796F;
+  /* Deep organic charcoal ink */
+  --ink: #262624;
+  --ink-secondary: #5F5B56;
+  --ink-muted: #736E68;
 
-  /* Signature Warm Terracotta */
-  --terracotta: #D96B43;
-  --terracotta-hover: #C55831;
-  --terracotta-strong: #AB421D;
-  --terracotta-subtle: rgba(217, 107, 67, 0.12);
-  --terracotta-glow: rgba(217, 107, 67, 0.25);
+  /* BlinkQuest Canonical Terracotta / Coral */
+  --terracotta: #DA7756;
+  --terracotta-hover: #C66847;
+  --terracotta-strong: #B85A3A;
+  --terracotta-subtle: rgba(218, 119, 86, 0.10);
 
-  /* Organic Accent Tones */
-  --sage: #457849;
-  --sage-subtle: rgba(69, 120, 73, 0.12);
-  --amber: #B8580D;
-  --amber-subtle: rgba(184, 88, 13, 0.12);
-  --sky: #3B7FB9;
-  --sky-subtle: rgba(59, 127, 185, 0.12);
+  /* Natural tones */
+  --sage: #4E7A4C;
+  --sage-subtle: rgba(78, 122, 76, 0.10);
+  --amber: #9A4A07;
+  --amber-subtle: rgba(154, 74, 7, 0.08);
 
-  --border: rgba(27, 26, 24, 0.06);
-  --border-strong: rgba(27, 26, 24, 0.12);
-  --shadow-sm: 0 2px 8px -2px rgba(27, 26, 24, 0.04), 0 1px 3px rgba(27, 26, 24, 0.02);
-  --shadow-md: 0 16px 36px -12px rgba(27, 26, 24, 0.08), 0 2px 6px rgba(27, 26, 24, 0.03);
-  --shadow-lg: 0 30px 60px -15px rgba(27, 26, 24, 0.12), 0 4px 12px rgba(27, 26, 24, 0.04);
-  --shadow-glow: 0 20px 50px -10px rgba(217, 107, 67, 0.28);
+  /* Flat hairline borders matching Setu design tokens (rgba(26,24,21,0.08)) */
+  --border: rgba(38, 38, 36, 0.07);
+  --border-strong: rgba(38, 38, 36, 0.12);
+
+  /* Zero heavy drop-shadows: authentic flat paper elevation */
+  --shadow-sm: 0 1px 2px rgba(38, 38, 36, 0.03);
+  --shadow-md: 0 4px 16px -4px rgba(38, 38, 36, 0.05);
 
   --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  --radius-squircle: 32px;
-  --radius-squircle-sm: 20px;
 }
 
 .dark {
-  --bg: #141312;
-  --bg-gradient: radial-gradient(circle at 50% 0%, rgba(217, 107, 67, 0.12) 0%, rgba(20, 19, 18, 0) 70%);
-  --paper: #141312;
-  --surface: #1E1D1A;
-  --surface2: #282622;
-  --surface3: #35332E;
-  --surface-glass: rgba(20, 19, 18, 0.85);
-  --surface-card: #1E1D1A;
+  --bg: #1A1917;
+  --paper: #1A1917;
+  --surface: #22211E;
+  --surface2: #2B2A26;
+  --surface3: #36342F;
+  --surface-glass: rgba(26, 25, 23, 0.92);
 
-  --ink: #F9F7F2;
-  --ink-secondary: #CCC6BA;
-  --ink-muted: #958F83;
+  --ink: #F5F3EC;
+  --ink-secondary: #C0BBB2;
+  --ink-muted: #8E8980;
 
-  --border: rgba(249, 247, 242, 0.07);
-  --border-strong: rgba(249, 247, 242, 0.14);
-  --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 16px 36px -12px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+  --border: rgba(245, 243, 236, 0.08);
+  --border-strong: rgba(245, 243, 236, 0.15);
+  --shadow-sm: none;
+  --shadow-md: none;
 }
 
 * {
@@ -81,12 +72,11 @@ html {
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  background-color: var(--bg);
 }
 
 body {
   background-color: var(--bg);
-  background-image: var(--bg-gradient);
-  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -109,61 +99,51 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Glassmorphism & Liquid Surfaces */
+/* Claude / Olo Flat Minimalist Header */
 .glass-nav {
   background-color: var(--surface-glass);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 
-.glass-card {
-  background: var(--surface);
+/* Clean, flat editorial cards - ZERO heavy drop shadows or gaudy glows */
+.editorial-card {
+  background-color: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-squircle);
-  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--border-strong);
+  border-radius: 24px;
 }
 
 .pill-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 9999px;
   background-color: var(--surface2);
   border: 1px solid var(--border);
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
   color: var(--ink-secondary);
 }
 
+/* Crisp, tactile buttons without oversized neon glow */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.85rem;
+  padding: 0.75rem 1.65rem;
   border-radius: 9999px;
   background-color: var(--terracotta);
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.9375rem;
-  box-shadow: 0 4px 14px 0 rgba(217, 107, 67, 0.35);
-  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms ease, box-shadow 160ms ease;
+  transition: background-color 150ms ease, transform 150ms ease;
 }
 
 .btn-primary:hover {
   background-color: var(--terracotta-hover);
-  box-shadow: var(--shadow-glow);
-  transform: translateY(-1px);
 }
 
 .btn-primary:active {
@@ -175,30 +155,23 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.85rem;
+  padding: 0.75rem 1.65rem;
   border-radius: 9999px;
   background-color: var(--surface2);
   color: var(--ink);
   font-weight: 600;
   font-size: 0.9375rem;
   border: 1px solid var(--border);
-  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
 }
 
 .btn-secondary:hover {
   background-color: var(--surface3);
   border-color: var(--border-strong);
-  transform: translateY(-1px);
 }
 
-/* Subtle Shimmer & Pulse Animation */
-@keyframes softPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.08); }
-}
-
-.animate-soft-pulse {
-  animation: softPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.btn-secondary:active {
+  transform: scale(0.98);
 }
 
 /* Lenis smooth scrolling */

@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { Play, RotateCcw, Check, Eye, Compass, Bell, Volume2, VolumeX, Sparkles } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Play, RotateCcw, Check, Eye, Compass, Bell, Volume2, VolumeX } from 'lucide-react'
 
 export function OcularSimulator() {
   const [active, setActive] = useState(false)
@@ -10,7 +10,6 @@ export function OcularSimulator() {
   const [blinksSimulated, setBlinksSimulated] = useState(0)
   const [soundEnabled, setSoundEnabled] = useState(true)
 
-  // Play pure soothing sine harmonic chime via Web Audio API without any external assets
   const playChime = (freq = 528) => {
     if (!soundEnabled) return
     try {
@@ -21,15 +20,13 @@ export function OcularSimulator() {
       const gain = ctx.createGain()
       osc.type = 'sine'
       osc.frequency.setValueAtTime(freq, ctx.currentTime)
-      gain.gain.setValueAtTime(0.12, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.4)
+      gain.gain.setValueAtTime(0.10, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.2)
       osc.connect(gain)
       gain.connect(ctx.destination)
       osc.start()
-      osc.stop(ctx.currentTime + 1.4)
-    } catch {
-      // AudioContext policy fallback
-    }
+      osc.stop(ctx.currentTime + 1.2)
+    } catch {}
   }
 
   useEffect(() => {
@@ -67,98 +64,91 @@ export function OcularSimulator() {
   }
 
   const progress = ((20 - seconds) / 20) * 100
-
-  // Rhythmic breathing cadence during 20s break
   const breathState = seconds % 6 >= 3 ? 'Exhale slowly...' : 'Inhale deeply...'
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-[var(--bg)] via-[var(--surface2)]/40 to-[var(--bg)]">
-      {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[var(--terracotta)]/8 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-5 sm:px-6 relative">
-        <div className="glass-card p-8 sm:p-14 text-center space-y-8">
+    <section className="py-24 md:py-32 bg-[var(--surface2)]/40 border-y border-[var(--border)]">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6">
+        <div className="p-8 sm:p-12 rounded-2xl bg-[var(--surface)] border border-[var(--border)] text-center space-y-6">
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--sage-subtle)] text-[var(--sage)] text-xs font-bold uppercase tracking-wider">
-              <Compass className="w-3.5 h-3.5" />
-              Interactive 20-20-20 Micro-Break
-            </div>
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta-strong)]">
+              Interactive 20-20-20 Routine
+            </span>
 
-            {/* Audio Toggle */}
             <button
               type="button"
               onClick={() => setSoundEnabled(!soundEnabled)}
-              className="p-2 rounded-full bg-[var(--surface2)] text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors"
-              title={soundEnabled ? 'Mute soothing chimes' : 'Enable chimes'}
+              className="p-2 rounded-lg bg-[var(--surface2)] text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors cursor-pointer"
+              title={soundEnabled ? 'Mute chimes' : 'Enable chimes'}
               aria-label={soundEnabled ? 'Mute sound' : 'Enable sound'}
             >
               {soundEnabled ? <Volume2 className="w-4 h-4 text-[var(--terracotta)]" /> : <VolumeX className="w-4 h-4" />}
             </button>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-[var(--ink)] leading-tight">
-            Rest your ciliary muscles right now.
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[var(--ink)] leading-tight">
+            Rest your ciliary eye muscles right now.
           </h2>
 
-          <p className="text-base sm:text-lg text-[var(--ink-secondary)] max-w-xl mx-auto leading-relaxed">
-            Look away from this screen. Target any object at least 20 feet (6 meters) away for 20 seconds. Relax your brow, lower your shoulders, and blink gently.
+          <p className="text-base text-[var(--ink-secondary)] max-w-xl mx-auto leading-relaxed">
+            Look away from this monitor. Focus on any object at least 20 feet away for 20 seconds. Relax your brow, lower your shoulders, and blink gently.
           </p>
 
-          {/* Interactive Timer & SVG Gauge */}
+          {/* Minimalist SVG Gauge */}
           <div className="py-4 flex flex-col items-center justify-center">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
+            <div className="relative w-44 h-44 sm:w-48 sm:h-48 flex items-center justify-center">
               <svg className="w-full h-full -rotate-90">
                 <circle
-                  cx="112"
-                  cy="112"
-                  r="96"
+                  cx="96"
+                  cy="96"
+                  r="82"
                   stroke="currentColor"
-                  strokeWidth="10"
+                  strokeWidth="6"
                   fill="none"
                   className="text-[var(--surface2)]"
                 />
                 <circle
-                  cx="112"
-                  cy="112"
-                  r="96"
+                  cx="96"
+                  cy="96"
+                  r="82"
                   stroke="var(--terracotta)"
-                  strokeWidth="10"
+                  strokeWidth="6"
                   fill="none"
-                  strokeDasharray={603}
-                  strokeDashoffset={603 - (603 * progress) / 100}
+                  strokeDasharray={515}
+                  strokeDashoffset={515 - (515 * progress) / 100}
                   strokeLinecap="round"
                   className="transition-all duration-1000 ease-linear"
                 />
               </svg>
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center space-y-1">
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
                 {completed ? (
-                  <div className="w-16 h-16 rounded-full bg-[var(--sage)] text-white flex items-center justify-center animate-bounce shadow-lg">
-                    <Check className="w-8 h-8" />
+                  <div className="w-12 h-12 rounded-full bg-[var(--sage)] text-white flex items-center justify-center">
+                    <Check className="w-6 h-6" />
                   </div>
                 ) : (
                   <>
-                    <span className="font-serif text-5xl font-extrabold text-[var(--ink)]">
+                    <span className="font-serif text-4xl sm:text-5xl font-bold text-[var(--ink)]">
                       {seconds}
-                      <span className="text-2xl font-normal text-[var(--ink-muted)]">s</span>
+                      <span className="text-xl font-normal text-[var(--ink-muted)]">s</span>
                     </span>
-                    <span className="text-xs uppercase tracking-widest font-bold text-[var(--terracotta)]">
-                      {active ? 'Gazing Afar' : 'Tap to Start'}
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-[var(--terracotta-strong)] mt-1">
+                      {active ? 'Gazing Afar' : 'Tap Start'}
                     </span>
                   </>
                 )}
               </div>
             </div>
 
-            {/* Breathing Guide Cadence */}
+            {/* Breathing Prompt */}
             {active && !completed ? (
-              <div className="mt-4 px-4 py-1.5 rounded-full bg-[var(--surface2)] text-xs font-semibold text-[var(--ink-secondary)] animate-pulse">
+              <div className="mt-3 px-3.5 py-1 rounded-full bg-[var(--surface2)] text-xs font-semibold text-[var(--ink-secondary)]">
                 {breathState}
               </div>
             ) : null}
 
-            {/* Status & Feedback */}
-            <div className="mt-4 h-7 text-sm sm:text-base font-semibold text-[var(--ink)]">
+            {/* Status Feedback */}
+            <div className="mt-4 text-sm font-semibold text-[var(--ink)]">
               {completed
                 ? '✨ Break complete! Tear film replenished and eye muscles eased.'
                 : active
@@ -166,22 +156,22 @@ export function OcularSimulator() {
                 : 'Click Start, then look out a window or down a long hallway.'}
             </div>
 
-            {/* Interactive Stats during the break */}
+            {/* Live Stats */}
             {active || completed ? (
-              <div className="mt-4 flex items-center gap-6 text-xs text-[var(--ink-muted)]">
+              <div className="mt-3 flex items-center gap-6 text-xs text-[var(--ink-muted)]">
                 <span className="flex items-center gap-1.5">
-                  <Eye className="w-4 h-4 text-[var(--sage)]" />
+                  <Eye className="w-3.5 h-3.5 text-[var(--sage)]" />
                   {blinksSimulated} Mindful Blinks
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Bell className="w-4 h-4 text-[var(--terracotta)]" />
-                  Ciliary Zonule Relaxation
+                  <Bell className="w-3.5 h-3.5 text-[var(--terracotta)]" />
+                  Ciliary Muscle Relaxed
                 </span>
               </div>
             ) : null}
 
             {/* Controls */}
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 flex items-center gap-3">
               <button
                 onClick={toggle}
                 className="btn-primary"
@@ -192,9 +182,7 @@ export function OcularSimulator() {
                     <span>Take Another Break</span>
                   </>
                 ) : active ? (
-                  <>
-                    <span>Pause</span>
-                  </>
+                  <span>Pause</span>
                 ) : (
                   <>
                     <Play className="w-4 h-4 fill-current" />
