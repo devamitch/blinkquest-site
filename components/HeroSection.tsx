@@ -249,62 +249,88 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: World-Class Mobile Card Swiper */}
+          {/* Right Column: World-Class Mobile Card Swiper & Ultra-Modern Device Stage */}
           <div className="lg:col-span-6 flex flex-col items-center">
-            {/* Swiper Stage */}
+            {/* Swiper Stage with Ambient Studio Glow */}
             <div
-              className="relative w-full max-w-[420px] flex items-center justify-center select-none"
+              className="relative w-full max-w-[440px] flex items-center justify-center select-none py-4"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {/* Peek Left Card (Previous Screen Preview on large screens) */}
+              {/* Diffused Ambient Backlight Pedestal */}
+              <div className="absolute inset-0 max-w-[440px] max-h-[540px] m-auto bg-gradient-to-tr from-[var(--terracotta)]/16 via-[var(--amber)]/10 to-[var(--sage)]/8 rounded-full blur-[100px] pointer-events-none -z-10" />
+
+              {/* Peek Left 3D Perspective Companion Device */}
               <button
                 type="button"
                 onClick={prevSlide}
                 aria-label={`Previous screen: ${slides[prevIndex].title}`}
-                className="hidden sm:block absolute -left-12 lg:-left-16 w-[180px] aspect-[720/1520] rounded-[2rem] bg-[#1E1D1B] p-1 border border-black/10 scale-[0.82] opacity-35 hover:opacity-75 transition-all duration-300 z-10 cursor-pointer overflow-hidden shadow-xs"
+                className="hidden sm:block absolute -left-8 sm:-left-12 lg:-left-16 w-[180px] sm:w-[200px] aspect-[720/1520] rounded-[2.2rem] bg-gradient-to-b from-[#2E2D2A] via-[#1C1B19] to-[#121110] p-[5px] sm:p-[6px] border border-white/10 ring-1 ring-black/40 shadow-xl -rotate-y-[12deg] -rotate-[5deg] scale-[0.84] opacity-45 hover:opacity-95 hover:scale-[0.88] hover:-rotate-[2deg] transition-all duration-500 ease-out z-10 cursor-pointer overflow-hidden group/peek"
               >
-                <div className="relative w-full h-full rounded-[1.6rem] overflow-hidden bg-[#FAF9F5]">
+                <div className="relative w-full h-full rounded-[1.65rem] overflow-hidden bg-[#FAF9F5]">
                   <Image
                     src={slides[prevIndex].src}
                     alt=""
                     fill
-                    sizes="180px"
-                    className="object-cover object-top pointer-events-none"
+                    sizes="200px"
+                    className="object-cover object-top pointer-events-none transition-transform duration-500 group-hover/peek:scale-[1.02]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none" />
                 </div>
               </button>
 
-              {/* Center Active Mobile Device */}
-              <div className="relative z-20 w-[270px] sm:w-[290px] md:w-[310px]">
-                {/* Floating Live Telemetry Badge */}
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 px-3.5 py-1 rounded-full bg-[var(--surface)] text-[11px] font-bold text-[var(--ink)] border border-[var(--border)] shadow-sm flex items-center gap-1.5 whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-[var(--sage)] animate-pulse" />
-                  <span>{activeSlide.badge}</span>
+              {/* Center Active Flagship Mobile Device */}
+              <div className="relative z-20 w-[275px] sm:w-[295px] md:w-[315px]">
+                {/* Floating Top-Right Live Mesh Telemetry Chip */}
+                <div className="absolute -top-3.5 right-2 sm:-right-3 z-30 px-3.5 py-1 rounded-full bg-[var(--surface)]/95 backdrop-blur-md border border-[var(--border-strong)] shadow-md flex items-center gap-2 select-none">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--sage)] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--sage)]" />
+                  </span>
+                  <span className="text-[11px] font-bold text-[var(--ink)]">478-pt Mesh · 30 FPS</span>
                 </div>
 
-                {/* The Mobile Frame */}
-                <div className="relative aspect-[720/1520] w-full rounded-[2.2rem] bg-[#1E1D1B] p-[6px] sm:p-[7px] border border-black/15 shadow-md">
-                  <div className="relative h-full w-full overflow-hidden rounded-[1.8rem] bg-[#FAF9F5]">
+                {/* Flagship Titanium Chassis with Chamfer & Unclipped Aspect Ratio */}
+                <div className="relative aspect-[720/1520] w-full rounded-[2.5rem] bg-gradient-to-b from-[#2F2E2B] via-[#1C1B19] to-[#11100F] p-[7px] sm:p-[8px] border border-white/12 ring-1 ring-black/50 shadow-[0_28px_65px_-12px_rgba(20,19,17,0.38),0_10px_24px_-6px_rgba(0,0,0,0.18)] transition-all duration-500 ease-out">
+                  {/* Micro-Camera Aperture in the top status bar center dead-zone */}
+                  <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#080808] border border-white/15 ring-1 ring-black/80 z-20 pointer-events-none flex items-center justify-center">
+                    <span className="w-1 h-1 rounded-full bg-[#1e293b]/80" />
+                  </div>
+
+                  {/* Pristine 1:1 screen container */}
+                  <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] bg-[#FAF9F5]">
                     <Image
                       key={activeSlide.id}
                       src={activeSlide.src}
                       alt={`BlinkQuest screen: ${activeSlide.title}`}
                       fill
-                      sizes="(max-width: 768px) 85vw, 320px"
+                      sizes="(max-width: 768px) 85vw, 360px"
                       className="object-cover object-top transition-opacity duration-300"
                       priority
                     />
+                    {/* Subtle specular glass reflection sheen */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none" />
                   </div>
                 </div>
 
-                {/* Floating Navigation Controls (Previous / Next Floating Pills) */}
+                {/* Floating Bottom-Left Glass Telemetry Widget */}
+                <div className="absolute -bottom-4 left-0 sm:-left-5 z-30 p-2.5 sm:p-3 rounded-2xl bg-[var(--surface)]/95 backdrop-blur-xl border border-[var(--border-strong)] shadow-lg flex items-center gap-2.5 sm:gap-3 select-none">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[var(--terracotta-subtle)] flex items-center justify-center text-[var(--terracotta)] shrink-0">
+                    <activeSlide.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <div className="text-left pr-1">
+                    <p className="text-xs font-bold text-[var(--ink)] leading-tight">{activeSlide.badge}</p>
+                    <p className="text-[10.5px] text-[var(--ink-secondary)] leading-tight mt-0.5">On-Device · Private Vision</p>
+                  </div>
+                </div>
+
+                {/* Floating Circular Frosted Navigation Arrows */}
                 <button
                   type="button"
                   onClick={prevSlide}
                   aria-label="Previous screen"
-                  className="absolute -left-4 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-[var(--surface)] text-[var(--ink)] border border-[var(--border)] shadow-md flex items-center justify-center hover:bg-[var(--surface2)] transition-all cursor-pointer"
+                  className="absolute -left-4 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-[var(--surface)]/95 backdrop-blur-md text-[var(--ink)] border border-[var(--border-strong)] shadow-md flex items-center justify-center hover:bg-[var(--surface2)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -312,33 +338,34 @@ export function HeroSection() {
                   type="button"
                   onClick={nextSlide}
                   aria-label="Next screen"
-                  className="absolute -right-4 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-[var(--surface)] text-[var(--ink)] border border-[var(--border)] shadow-md flex items-center justify-center hover:bg-[var(--surface2)] transition-all cursor-pointer"
+                  className="absolute -right-4 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-[var(--surface)]/95 backdrop-blur-md text-[var(--ink)] border border-[var(--border-strong)] shadow-md flex items-center justify-center hover:bg-[var(--surface2)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Peek Right Card (Next Screen Preview on large screens) */}
+              {/* Peek Right 3D Perspective Companion Device */}
               <button
                 type="button"
                 onClick={nextSlide}
                 aria-label={`Next screen: ${slides[nextIndex].title}`}
-                className="hidden sm:block absolute -right-12 lg:-right-16 w-[180px] aspect-[720/1520] rounded-[2rem] bg-[#1E1D1B] p-1 border border-black/10 scale-[0.82] opacity-35 hover:opacity-75 transition-all duration-300 z-10 cursor-pointer overflow-hidden shadow-xs"
+                className="hidden sm:block absolute -right-8 sm:-right-12 lg:-right-16 w-[180px] sm:w-[200px] aspect-[720/1520] rounded-[2.2rem] bg-gradient-to-b from-[#2E2D2A] via-[#1C1B19] to-[#121110] p-[5px] sm:p-[6px] border border-white/10 ring-1 ring-black/40 shadow-xl rotate-y-[12deg] rotate-[5deg] scale-[0.84] opacity-45 hover:opacity-95 hover:scale-[0.88] hover:rotate-[2deg] transition-all duration-500 ease-out z-10 cursor-pointer overflow-hidden group/peek"
               >
-                <div className="relative w-full h-full rounded-[1.6rem] overflow-hidden bg-[#FAF9F5]">
+                <div className="relative w-full h-full rounded-[1.65rem] overflow-hidden bg-[#FAF9F5]">
                   <Image
                     src={slides[nextIndex].src}
                     alt=""
                     fill
-                    sizes="180px"
-                    className="object-cover object-top pointer-events-none"
+                    sizes="200px"
+                    className="object-cover object-top pointer-events-none transition-transform duration-500 group-hover/peek:scale-[1.02]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none" />
                 </div>
               </button>
             </div>
 
-            {/* Mobile / Compact Screen Title & Indicators */}
-            <div className="mt-6 text-center">
+            {/* Pagination Indicators & Quick Navigation */}
+            <div className="mt-7 text-center flex flex-col items-center">
               <div className="flex items-center justify-center gap-1.5">
                 {slides.map((s, index) => (
                   <button
@@ -348,19 +375,37 @@ export function HeroSection() {
                     aria-label={`Go to slide ${index + 1}`}
                     className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                       currentIndex === index
-                        ? 'w-6 bg-[var(--terracotta)]'
+                        ? 'w-7 bg-[var(--terracotta)]'
                         : 'w-2 bg-[var(--border-strong)] hover:bg-[var(--ink-muted)]'
                     }`}
                   />
                 ))}
               </div>
 
-              <div className="mt-2 text-xs font-semibold text-[var(--ink)]">
+              <div className="mt-2.5 text-xs font-semibold text-[var(--ink)]">
                 <span>{activeSlide.title}</span>
                 <span className="text-[var(--ink-muted)] font-normal"> · {activeSlide.subtitle}</span>
               </div>
-              <p className="text-[11px] text-[var(--ink-muted)] sm:hidden mt-1 px-4 leading-relaxed">
-                Swipe left or right to inspect the release screens
+
+              {/* Mobile Quick Tap Feature Pills */}
+              <div className="sm:hidden mt-3 flex flex-wrap gap-1.5 justify-center max-w-xs">
+                {slides.map((s, index) => (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setCurrentIndex(index)}
+                    className={`px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all ${
+                      currentIndex === index
+                        ? 'bg-[var(--terracotta)] text-white shadow-xs'
+                        : 'bg-[var(--surface2)] text-[var(--ink-secondary)]'
+                    }`}
+                  >
+                    {s.tag}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[11px] text-[var(--ink-muted)] sm:hidden mt-2 leading-relaxed">
+                Swipe left or right to explore screens
               </p>
             </div>
           </div>
