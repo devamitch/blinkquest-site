@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}${route === '/' ? '' : route}`,
     lastModified: now,
     changeFrequency: route === '/' ? 'daily' : 'weekly',
-    priority: route === '/' ? 1.0 : route === '/download' ? 0.9 : 0.8,
+    priority: route === '/' ? 1.0 : route === '/beta' || route === '/download' ? 0.95 : 0.8,
   }))
 }
+

@@ -41,7 +41,17 @@ export function SiteHeader() {
         </nav>
 
         {/* Action */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
+          <a
+            href={siteConfig.setuUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-[var(--ink-secondary)] hover:text-[var(--ink)] bg-[var(--surface)] border border-[var(--border)] transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--terracotta)]" />
+            <span>Setu Ecosystem</span>
+          </a>
+
           <a
             href={getAppHref}
             className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ink)] text-white text-xs font-semibold transition-colors hover:bg-black"

@@ -8,6 +8,7 @@ const columns = [
   {
     title: 'Product',
     links: [
+      { href: '/beta', label: 'Join Google Play Beta' },
       { href: '/features', label: 'Feature Directory' },
       { href: '/how-it-works', label: 'How It Works' },
       { href: '/science', label: 'Clinical Research' },
@@ -107,6 +108,45 @@ export function SiteFooter() {
           <p>
             <strong>Wellness Disclaimer:</strong> BlinkQuest is an eye-habit wellness application. It is not an FDA/CE-registered medical diagnostic device and does not diagnose, treat, cure, or prevent any ocular condition. For sudden vision impairment, pain, or flashes of light, seek professional optometric evaluation immediately.
           </p>
+        </div>
+
+        {/* Setu Family Ecosystem Banner */}
+        <div className="mt-10 p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[var(--ink-secondary)]">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[var(--terracotta)] animate-pulse" />
+            <span>
+              <strong>Setu Family Ecosystem:</strong> From the creators of{' '}
+              <a
+                href={siteConfig.setuUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--ink)] underline hover:text-[var(--terracotta)]"
+              >
+                Setu
+              </a>{' '}
+              — offline nearby file sharing for Android. Both apps share our unified Google testing group and local-first philosophy.
+            </span>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={siteConfig.setuUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--terracotta-strong)] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Visit Setu</span>
+              <span className="text-xs">↗</span>
+            </a>
+            <span className="text-[var(--border)]">|</span>
+            <a
+              href={siteConfig.googleGroupUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--ink)] hover:text-[var(--terracotta)]"
+            >
+              Join Google Group
+            </a>
+          </div>
         </div>
 
         {/* Bottom bar */}

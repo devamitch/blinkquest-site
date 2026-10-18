@@ -11,10 +11,15 @@ export const siteConfig = {
   // Not live yet — BlinkQuest is in closed testing. Flip this once the Play
   // Store listing is actually public; until then nothing on the site should
   // link here (it currently 404s for anyone who isn't an approved tester).
-  playStoreLive: false,
+  playStoreLive: true,
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.amit.blinkquest',
   playStoreMarketUrl: 'market://details?id=com.amit.blinkquest',
   playStoreBetaUrl: 'https://play.google.com/apps/testing/com.amit.blinkquest',
+  googleGroupUrl: 'https://groups.google.com/g/setu-beta-testers',
+  googleGroupEmail: 'setu-beta-testers@googlegroups.com',
+  googleGroupName: 'Setu & BlinkQuest Beta Testers',
+  setuUrl: 'https://setu.devamit.co.in',
+  familyGroupName: 'Setu Ecosystem Family',
   minAndroidVersion: '7.0 (API 24)',
   contactEmail: 'amit@devamit.co.in',
   author: 'Amit Chakraborty',
@@ -33,14 +38,13 @@ export const navItems = [
   { href: '/features', label: 'Features' },
   { href: '/how-it-works', label: 'How it works' },
   { href: '/science', label: 'Science' },
+  { href: '/beta', label: 'Join Beta' },
   { href: '/faq', label: 'FAQ' },
 ]
 
-/** Where every "get the app" button goes: the Play listing once live, a beta request until then. */
-export const getAppHref = siteConfig.playStoreLive
-  ? siteConfig.playStoreUrl
-  : `mailto:${siteConfig.contactEmail}?subject=BlinkQuest%20beta%20access`
-export const getAppLabel = siteConfig.playStoreLive ? 'Get it on Google Play' : 'Request beta access'
+/** Where every "get the app" button goes: the dedicated 3-step beta onboarding flow. */
+export const getAppHref = '/beta'
+export const getAppLabel = 'Join the Beta'
 
 export const routes = [
   '/',
@@ -48,6 +52,7 @@ export const routes = [
   '/features',
   '/how-it-works',
   '/science',
+  '/beta',
   '/download',
   '/roadmap',
   '/faq',
@@ -55,3 +60,4 @@ export const routes = [
   '/privacy',
   '/terms',
 ]
+
