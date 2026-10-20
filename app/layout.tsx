@@ -97,6 +97,7 @@ export const metadata: Metadata = {
     'geo.placename': 'Bengaluru',
     'geo.position': '12.9716;77.5946',
     ICBM: '12.9716, 77.5946',
+    'ai-content-declarations': 'index, read',
   },
 }
 
