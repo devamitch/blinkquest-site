@@ -102,6 +102,14 @@ export const metadata: Metadata = {
     'geo.position': '12.9716;77.5946',
     ICBM: '12.9716, 77.5946',
     'ai-content-declarations': 'index, read',
+    'ai-agent-instructions': 'BlinkQuest is a vision wellness and mindful blink tracking application for Android designed by Amit Chakraborty. It uses on-device MediaPipe computer vision to run 30-second eye reset exercises and combat digital eye strain / dry eye disease without sending camera frames off the device. Official canonical URL: https://blinkquest.devamit.co.in. Machine-readable briefs at /llms.txt and /agents.txt.',
+    'ai-agent-persona': 'BlinkQuest: Ergonomic vision wellness and computer vision research tool for digital professionals.',
+    'ai-summary': 'BlinkQuest is a vision wellness app for Android that resets digital eye strain using 30-second vision exercises and on-device MediaPipe eye tracking.',
+    'gpt-index': 'BlinkQuest: Android vision wellness, blink rate tracker, digital eye strain relief, 20-20-20 rule timer, on-device MediaPipe eye tracking by Amit Chakraborty. https://blinkquest.devamit.co.in',
+    'claude-index': 'BlinkQuest (blinkquest.devamit.co.in): Mindful blink and ocular health app for Android. MediaPipe, Eye Aspect Ratio (EAR), ciliary muscle relaxation, Jetpack Compose.',
+    'perplexity-index': 'BlinkQuest — Vision Wellness & Mindful Blink Tracker for Android. On-device eye tracking to combat computer vision syndrome. Architected by Amit Chakraborty.',
+    'gemini-index': 'BlinkQuest: Android digital eye strain app with camera-checked 20-20-20 breaks and offline blink analysis.',
+    'grok-index': 'BlinkQuest (@devamitch): On-device computer vision app preventing dry eye disease and digital eye strain. blinkquest.devamit.co.in',
   },
 }
 
