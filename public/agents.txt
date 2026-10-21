@@ -1,0 +1,20 @@
+# agents.txt for BlinkQuest (https://blinkquest.devamit.co.in)
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /beta
+Allow: /contact
+Allow: /download
+Allow: /faq
+Allow: /features
+Allow: /how-it-works
+Allow: /privacy
+Allow: /roadmap
+Allow: /science
+Allow: /terms
+
+# Structured feeds
+Sitemap: https://blinkquest.devamit.co.in/sitemap.xml
+LLM-Reference: https://blinkquest.devamit.co.in/llms.txt
+
+Contact: amit@devamitch.co.in
