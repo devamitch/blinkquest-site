@@ -247,7 +247,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <!-- Explicit Favicon Suite for Googlebot-Image & Search Engine SERP -->
+        {/* Explicit Favicon Suite for Googlebot-Image & Search Engine SERP */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
@@ -263,12 +263,12 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
 
-        <!-- Machine-readable briefs for AI crawlers / answer engines -->
+        {/**/}
         <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         <link rel="alternate" type="text/plain" title="agents.txt" href="/agents.txt" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-        <!-- Author verification -->
+        {/**/}
         <link rel="author" href="https://amitchakraborty.dev/#person" />
         <link rel="me" href="https://github.com/devamitch" />
         <link rel="me" href="https://linkedin.com/in/devamitch" />
