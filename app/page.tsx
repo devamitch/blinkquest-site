@@ -7,6 +7,7 @@ import { FeatureBento } from '@/components/FeatureBento'
 import { OcularSimulator } from '@/components/OcularSimulator'
 import { ClinicalEvidence } from '@/components/ClinicalEvidence'
 import { FaqSection } from '@/components/FaqSection'
+import { EcosystemDirectorySection } from '@/components/EcosystemDirectorySection'
 import { DownloadCta } from '@/components/DownloadCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
@@ -23,6 +24,7 @@ export default function HomePage() {
         <OcularSimulator />
         <ClinicalEvidence />
         <FaqSection />
+        <EcosystemDirectorySection />
         <DownloadCta />
       </main>
       <SiteFooter />
