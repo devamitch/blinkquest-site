@@ -115,23 +115,28 @@ export function HeroSection() {
           </p>
 
           {/* Action CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+          <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
             <Link
               href="/beta"
               className="inline-flex items-center justify-center gap-2 min-h-13 px-7 rounded-full bg-[var(--terracotta)] hover:bg-[var(--terracotta-hover)] text-white text-base font-semibold shadow-md hover:shadow-lg transition-all active:scale-95"
             >
-              <span>Join the Beta Program</span>
+              <span>Join Beta Program</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
 
-            <a
-              href={siteConfig.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 min-h-13 px-6 rounded-full bg-[var(--surface)] hover:bg-[var(--surface2)] text-[var(--ink)] text-base font-semibold border border-[var(--border-strong)] transition-all active:scale-95 shadow-xs"
+            <Link
+              href="/download"
+              className="inline-flex items-center justify-center gap-2 min-h-13 px-6 rounded-full bg-stone-900 hover:bg-black text-white text-base font-semibold shadow-xs transition-all active:scale-95"
             >
-              <span>Google Play Store</span>
-              <ExternalLink className="h-4 w-4 text-[var(--ink-muted)]" aria-hidden="true" />
+              <span>Download APK</span>
+            </Link>
+
+            <a
+              href="#ecosystem"
+              className="inline-flex items-center justify-center gap-1.5 min-h-13 px-5 rounded-full bg-[var(--surface)] hover:bg-[var(--surface2)] text-[var(--ink)] text-sm font-semibold border border-[var(--border-strong)] transition-all active:scale-95 shadow-xs"
+            >
+              <span>All 10 Apps &amp; Betas</span>
+              <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" />
             </a>
           </div>
 
@@ -141,7 +146,7 @@ export function HeroSection() {
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--terracotta-subtle)] text-[var(--terracotta-strong)]">
                 <Check className="h-3 w-3" aria-hidden="true" />
               </span>
-              Part of Setu Ecosystem
+              Part of AnvayKosh Ecosystem
             </li>
             <li className="flex items-center gap-2">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--terracotta-subtle)] text-[var(--terracotta-strong)]">

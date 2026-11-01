@@ -110,12 +110,21 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Setu Family Ecosystem Banner */}
+        {/* AnvayKosh Family Ecosystem Banner */}
         <div className="mt-10 p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[var(--ink-secondary)]">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[var(--terracotta)] animate-pulse" />
             <span>
-              <strong>Setu Family Ecosystem:</strong> From the creators of{' '}
+              <strong>AnvayKosh (अन्वयकोश) Ecosystem:</strong> Flagship multi-app family featuring{' '}
+              <a
+                href="https://thrivefold.devamit.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--ink)] underline hover:text-[var(--terracotta)]"
+              >
+                Thrivefold
+              </a>
+              {', '}
               <a
                 href={siteConfig.setuUrl}
                 target="_blank"
@@ -123,28 +132,44 @@ export function SiteFooter() {
                 className="font-semibold text-[var(--ink)] underline hover:text-[var(--terracotta)]"
               >
                 Setu
-              </a>{' '}
-              — offline nearby file sharing for Android. Both apps share our unified Google testing group and local-first philosophy.
+              </a>
+              {', '}
+              <a
+                href="https://harmonybloom.devamit.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--ink)] underline hover:text-[var(--terracotta)]"
+              >
+                HarmonyBloom
+              </a>
+              {', and '}
+              <a
+                href="https://neevsanctuary.devamit.co.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--ink)] underline hover:text-[var(--terracotta)]"
+              >
+                Neev
+              </a>
+              . All apps share our unified Google Play testing group, local Keystore encryption, and zero cloud telemetry.
             </span>
           </div>
           <div className="flex items-center gap-3 shrink-0">
-            <a
-              href={siteConfig.setuUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/download"
               className="font-semibold text-[var(--terracotta-strong)] hover:underline inline-flex items-center gap-1"
             >
-              <span>Visit Setu</span>
+              <span>Download All APKs</span>
               <span className="text-xs">↗</span>
-            </a>
+            </Link>
             <span className="text-[var(--border)]">|</span>
             <a
-              href={siteConfig.googleGroupUrl}
+              href="https://groups.google.com/g/anvaykosh-beta-testers"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-[var(--ink)] hover:text-[var(--terracotta)]"
             >
-              Join Google Group
+              AnvayKosh Testers
             </a>
           </div>
         </div>

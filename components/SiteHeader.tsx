@@ -49,7 +49,7 @@ export function SiteHeader() {
             className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-[var(--ink-secondary)] hover:text-[var(--ink)] bg-[var(--surface)] border border-[var(--border)] transition-colors"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--terracotta)]" />
-            <span>Setu Ecosystem</span>
+            <span>AnvayKosh Ecosystem</span>
           </a>
 
           <a

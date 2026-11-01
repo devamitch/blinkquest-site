@@ -17,6 +17,8 @@ export default function HomePage() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
+        {/* Dedicated AnvayKosh Ecosystem Beta & Download Hub */}
+        <EcosystemDirectorySection />
         <EyeStrainCalculator />
         <ComparisonSection />
         <VisionArchitecture />
@@ -24,7 +26,6 @@ export default function HomePage() {
         <OcularSimulator />
         <ClinicalEvidence />
         <FaqSection />
-        <EcosystemDirectorySection />
         <DownloadCta />
       </main>
       <SiteFooter />

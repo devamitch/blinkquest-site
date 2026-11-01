@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build || next build",
     "start": "next start",
     "build:cloudflare": "npm run build",
     "deploy": "npm run build && npx -y wrangler deploy",

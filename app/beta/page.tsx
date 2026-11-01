@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { constructMetadata } from '@/lib/seo'
 import { ContentPage } from '@/components/ContentPage'
 import { siteConfig } from '@/lib/site'
+import { EcosystemDirectorySection } from '@/components/EcosystemDirectorySection'
 import {
   ArrowRight,
   CheckCircle2,
@@ -16,7 +17,7 @@ import {
 export const metadata = constructMetadata({
   title: 'Get the Android Beta · Three Steps',
   description:
-    'Join the official BlinkQuest Android closed beta on Google Play in three simple steps. Part of the Setu family ecosystem.',
+    `Join the official ${siteConfig.name} Android closed beta on Google Play in three simple steps. Part of the AnvayKosh family ecosystem.`,
   path: '/beta',
 })
 
@@ -43,7 +44,7 @@ const STEPS = [
   },
   {
     step: '3',
-    title: 'Install BlinkQuest',
+    title: `Install ${siteConfig.name}`,
     description:
       'Open the Google Play Store on your Android device and tap “Install”. Updates will stream automatically to your phone.',
     hint: 'Seeing “Item not found”? Wait 2 minutes for Google’s access token to propagate, then tap again.',
@@ -73,7 +74,7 @@ export default function BetaPage() {
     <ContentPage
       badge="Google Play Closed Beta"
       title="Three steps. One Gmail."
-      subtitle="BlinkQuest is in active closed testing on Google Play. Follow these three steps on your Android device using the Gmail associated with your Play Store account."
+      subtitle={`${siteConfig.name} is in active closed testing on Google Play. Follow these three steps on your Android device using the Gmail associated with your Play Store account.`}
     >
       {/* Setu Family Ecosystem Banner */}
       <div className="p-4 sm:p-5 rounded-2xl bg-[var(--surface2)]/70 border border-[var(--border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -194,6 +195,11 @@ export default function BetaPage() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Ecosystem All Apps Beta Directory */}
+      <div className="mt-16 pt-12 border-t border-[var(--border)]">
+        <EcosystemDirectorySection />
       </div>
     </ContentPage>
   )
