@@ -14,7 +14,7 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6 h-18 flex items-center justify-between gap-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
-          <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-[var(--border)]">
+          <div className="relative w-9 h-9 rounded-xl overflow-hidden bg-white">
             <Image src="/assets/brand/app-icon.png" alt="BlinkQuest app icon" fill className="object-cover" priority />
           </div>
           <div>
@@ -28,7 +28,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-[var(--surface2)]/60 border border-[var(--border)]" aria-label="Main Navigation">
+        <nav className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-[var(--surface2)]/70" aria-label="Main Navigation">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -46,7 +46,7 @@ export function SiteHeader() {
             href={siteConfig.setuUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-[var(--ink-secondary)] hover:text-[var(--ink)] bg-[var(--surface)] border border-[var(--border)] transition-colors"
+            className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-[var(--ink-secondary)] hover:text-[var(--ink)] bg-[var(--surface2)]/80 transition-colors"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--terracotta)]" />
             <span>AnvayKosh Ecosystem</span>
@@ -74,20 +74,20 @@ export function SiteHeader() {
 
       {/* Mobile Drawer */}
       {open ? (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--surface)] px-6 pt-4 pb-8 space-y-4 animate-in fade-in duration-150">
+        <div className="md:hidden rounded-3xl bg-[var(--surface)] m-4 px-6 pt-4 pb-6 space-y-4 animate-in fade-in duration-150">
           <nav className="flex flex-col gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-2.5 px-3 rounded-lg text-sm font-semibold text-[var(--ink)] hover:bg-[var(--surface2)] transition-colors"
+                className="py-2.5 px-3 rounded-xl text-sm font-semibold text-[var(--ink)] hover:bg-[var(--surface2)] transition-colors"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-          <div className="pt-3 border-t border-[var(--border)]">
+          <div className="pt-3">
             <a
               href={getAppHref}
               className="btn-primary w-full text-center"
