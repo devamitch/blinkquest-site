@@ -111,7 +111,11 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-6 text-[17px] leading-8 text-[var(--ink-secondary)] sm:text-[19px]">
-            We blink up to 66% less while staring at screens. Part of the <strong>Setu local-first family</strong>, BlinkQuest restores natural tear film with 30-second gaze games, camera-verified focus breaks, and a private Eye Battery.
+            BlinkQuest is an on-device ocular wellness and blink-rate tracking application for Android. 
+            Utilizing on-device MediaPipe facial mesh and iris landmark tracking at 30 FPS, BlinkQuest 
+            monitors spontaneous blink frequency and guides interactive 30-second ocular breaks to counteract 
+            Computer Vision Syndrome (CVS). All image processing executes strictly in local memory without 
+            recording, storing, or uploading camera frames.
           </p>
 
           {/* Action CTAs */}
